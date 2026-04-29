@@ -18,7 +18,7 @@ export default function App() {
   const [isAiConfigOpen, setIsAiConfigOpen] = useState(false);
 
   useEffect(() => {
-    fetch("/album.json", { cache: "no-store" })
+    fetch(`${import.meta.env.BASE_URL}album.json`, { cache: "no-store" })
       .then((response) => {
         if (!response.ok) throw new Error("No generated album yet");
         return response.json() as Promise<TravelAlbum>;
