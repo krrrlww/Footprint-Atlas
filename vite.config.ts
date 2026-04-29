@@ -14,6 +14,7 @@ const rawPhotosDir = path.join(rootDir, "raw", "photos");
 const SUPPORTED_UPLOAD_EXTENSIONS = new Set([".jpg", ".jpeg", ".png", ".webp", ".heic", ".heif", ".tif", ".tiff"]);
 
 export default defineConfig({
+  base: process.env.GITHUB_ACTIONS ? "/Footprint-Atlas/" : "/",
   plugins: [react(), manualMetadataApi()],
   server: {
     port: 5173
