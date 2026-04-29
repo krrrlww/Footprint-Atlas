@@ -1,156 +1,120 @@
-<h1 align="center">
-  Footprint Atlas
-</h1>
+<div align="center">
 
-<p align="center">
-  <strong>A vintage-styled personal footprint map, generated from your geotagged photos.</strong>
-</p>
+<img src="public/favicon.svg" width="80" />
 
-<p align="center">
-  <a href="#quick-start">Quick Start</a> ·
-  <a href="#features">Features</a> ·
-  <a href="#ai-enrichment">AI Enrichment</a> ·
-  <a href="#deploy">Deploy</a> ·
-  <a href="#contributing">Contributing</a>
-</p>
+# Footprint Atlas
 
-<p align="center">
-  <img src="https://img.shields.io/github/license/krrrlww/Footprint-Atlas" alt="MIT License" />
-  <img src="https://img.shields.io/badge/node-%3E%3D20-brightgreen" alt="Node >= 20" />
-  <img src="https://img.shields.io/badge/react-19-blue" alt="React 19" />
-</p>
+**Turn years of geotagged photos into one living, vintage-styled atlas.**
+
+[Live Demo](https://krrrlww.github.io/Footprint-Atlas/) · [Quick Start](#quick-start) · [AI Enrichment](#-ai-enrichment) · [Deploy](#-deploy)
+
+[![MIT License](https://img.shields.io/github/license/krrrlww/Footprint-Atlas?color=8e3f39&labelColor=3b3023)](LICENSE)
+[![Node >= 20](https://img.shields.io/badge/node-%3E%3D20-8e3f39?labelColor=3b3023)](https://nodejs.org/)
+[![React 19](https://img.shields.io/badge/react-19-8e3f39?labelColor=3b3023)](https://react.dev/)
+
+</div>
 
 ---
 
-<p align="center">
-  <a href="https://krrrlww.github.io/Footprint-Atlas/">Live Demo →</a>
-</p>
+Drop travel photos in. Get a kraft-paper atlas out.
 
-Drop geotagged travel photos into the project, and Footprint Atlas extracts EXIF metadata (time, GPS) to build an interactive, vintage kraft-paper atlas of everywhere you've been.
+Footprint Atlas reads EXIF metadata — shooting time, GPS — from every photo you give it, then clusters them by month and geography into an interactive, zoomable world map. It's not a single-trip route planner; it's a growing archive of everywhere you've been.
 
-It's not a single-trip route planner — it's a growing archive of all the places you've visited. Perfect for organizing years of phone albums, travel photos, and scattered memories.
+把旅行照片放进来，生成一本复古手账风格的足迹地图集。自动提取 EXIF 时间和 GPS 坐标，按月份和地理位置聚合，支持 AI 为每个足迹点撰写诗意标题和第一人称手账旁注。
 
-把带有 EXIF 信息的旅行照片放入项目，Footprint Atlas 会自动提取拍摄时间和 GPS 坐标，生成一张复古手账风格的互动足迹地图。适合整理手机相册、旅行照片和散落在硬盘里的记忆碎片。
+## ✦ What It Does
 
-## Features
-
-- **EXIF Extraction** — reads shooting time, GPS coordinates, and dimensions from photos
-- **Auto Clustering** — groups photos into periods (by month) and footprint stops (by time gaps >6h or distance >12km)
-- **Real Map Projection** — renders footprint coordinates on actual world geography via `d3-geo` Mercator projection
-- **Vintage Atlas Theme** — kraft-paper texture, hand-journal typography, film-strip photo viewers, wax-seal accents
-- **Photo Lightbox** — click any photo for full-viewport viewing with keyboard navigation
-- **AI Memory Capsules** — optional vision-model enrichment generates poetic titles, first-person journal notes, mood tags, and color palettes for each stop
-- **Unplaced Photo Editor** — geocode search + manual coordinate input for photos without GPS
-- **In-Browser Upload** — drag-and-drop photos in dev mode, auto-rebuilds the atlas
-- **Static Deployable** — builds to pure static HTML/CSS/JS, ready for GitHub Pages, Vercel, or Cloudflare Pages
-- **Local-First Privacy** — all data stays on your machine; no mandatory external services
+| | Feature | |
+|---|---|---|
+| 🗺️ | **Real Map Projection** | d3-geo Mercator on actual world geography — zoom, pan, drag |
+| 📍 | **Auto Clustering** | Groups photos into periods (by month) and stops (by time >6h / distance >12km) |
+| 📷 | **EXIF Extraction** | Reads time, GPS, dimensions from JPG / PNG / WebP / HEIC / TIFF |
+| 🤖 | **AI Memory Capsules** | Vision model generates poetic titles, journal notes, mood tags, color palettes |
+| ✉️ | **Period Narratives** | AI writes a story arc + postcard-to-future-self for each travel period |
+| 🔍 | **Photo Lightbox** | Click any photo → full-viewport viewer with keyboard navigation |
+| 🏷️ | **Unplaced Editor** | Geocode search + manual coordinates for photos without GPS |
+| 📤 | **Browser Upload** | Drag-and-drop in dev mode, auto-rebuilds the atlas |
+| 🔒 | **Local-First** | All data on your machine. Zero external calls from the frontend |
 
 ## Quick Start
 
 ```bash
-# Clone and install
 git clone https://github.com/krrrlww/Footprint-Atlas.git
-cd Footprint-Atlas
-npm install
+cd Footprint-Atlas && npm install
 
-# Add your photos
-# Put geotagged JPG/PNG/WebP/HEIC files into raw/photos/
-
-# Generate atlas data
-npm run album:build
-
-# Start dev server
-npm run dev
-# → http://localhost:5173
+# Drop geotagged photos into raw/photos/, then:
+npm run album:build          # extract EXIF → generate atlas
+npm run dev                  # → http://localhost:5173
 ```
 
-Or upload photos directly from the browser after starting the dev server.
+Or start the dev server first and upload photos from the browser.
 
-## Scripts
+<details>
+<summary><strong>All scripts</strong></summary>
 
-| Command | Description |
+| Command | What it does |
 |---------|-------------|
-| `npm run dev` | Start Vite dev server (includes local API for editing) |
+| `npm run dev` | Vite dev server + local editing API |
 | `npm run build` | Production build → `dist/` |
-| `npm test` | Run unit tests |
-| `npm run album:build` | Process `raw/photos/` → generate atlas JSON + optimized images |
-| `npm run album:ai` | AI enrichment: generate Memory Capsules + Period Narratives |
-| `npm run album:full` | `album:build` + `album:ai` in sequence |
-| `npm run album:reset` | Wipe generated data (keeps original photos) |
+| `npm test` | Unit tests |
+| `npm run album:build` | `raw/photos/` → optimized images + `album.json` |
+| `npm run album:ai` | AI enrichment (Memory Capsules + Narratives) |
+| `npm run album:full` | `album:build` then `album:ai` |
+| `npm run album:reset` | Wipe generated data, keep originals |
+| `npm run lint` | ESLint |
+| `npm run format` | Prettier |
 
-## AI Enrichment
+</details>
 
-Footprint Atlas can optionally use a vision model to analyze your photos and generate rich contextual content for each footprint stop:
+## 🤖 AI Enrichment
 
-- **Memory Capsule** — poetic title, first-person journal note, mood descriptor, scene sketch, color palette, tags
-- **Period Narrative** — story arc connecting all stops, postcard to your future self
+Optionally connect a vision model to generate rich context for every stop:
+
+- **Memory Capsule** — poetic title · first-person journal note · mood · scene sketch · color palette · tags
+- **Period Narrative** — story arc connecting all stops · postcard to your future self
 
 ```bash
-# Using DeepSeek (default)
-AI_API_KEY=sk-xxx npm run album:ai
-
-# Using a custom vision model
-AI_API_KEY=sk-xxx AI_VISION_MODEL=gpt-4o AI_VISION_BASE_URL=https://api.openai.com/v1 npm run album:ai
+AI_API_KEY=sk-xxx npm run album:ai                    # DeepSeek (default)
+AI_API_KEY=sk-xxx AI_VISION_MODEL=gpt-4o \
+  AI_VISION_BASE_URL=https://api.openai.com/v1 \
+  npm run album:ai                                     # OpenAI
 ```
 
-See [`.env.example`](.env.example) for all configuration options. AI enrichment is cached in `data/ai-cache.json` — re-running only processes new stops.
+Results are cached in `data/ai-cache.json` — re-runs only process new stops. You can also configure everything from the web UI (click **AI 记忆解析**).
 
-You can also configure AI settings from the web UI by clicking the "AI 记忆解析" button.
+See [`.env.example`](.env.example) for all options.
 
-## Data Model
+## 📐 Data Model
 
 ```
 TravelAlbum
-  └─ AlbumDay (period — typically a month)
-       └─ TimelineStop (footprint cluster)
-            └─ MediaItem (photo)
+  └─ AlbumDay          (period — typically one month)
+       └─ TimelineStop  (footprint cluster: >6h gap or >12km apart)
+            └─ MediaItem (single photo)
 ```
 
-Clustering rules:
-- Same month, >6h time gap → new stop
-- GPS distance >12km → new stop
-- Large groups split further by time intervals
+## 🚀 Deploy
 
-## Deploy
+**GitHub Pages** — already set up. Enable Pages (Settings → Pages → Source: GitHub Actions), push to `main`, done. The included workflow builds and deploys automatically.
 
-### GitHub Pages
+**Anywhere else** — `npm run build`, upload `dist/` to Vercel / Cloudflare Pages / Netlify / any static host.
 
-Enable GitHub Pages in your repo settings (Settings → Pages → Source: GitHub Actions). The included workflow at `.github/workflows/deploy.yml` will build and deploy on every push to `main`.
+> Before public deployment, review `public/media/` and `public/album.json` for any photos or coordinates you'd rather keep private.
 
-Before deploying, make sure `public/album.json` and `public/media/` are committed or generated in CI. For privacy, review that no unwanted photos or coordinates are included.
+## 🔧 Tech Stack
 
-### Other Platforms
-
-```bash
-npm run build
-# Upload the dist/ directory to Vercel, Cloudflare Pages, Netlify, or any static host
-```
-
-## Privacy
-
-Footprint Atlas is local-first by design:
-
-- Original photos stay in `raw/photos/` (git-ignored)
-- Generated images go to `public/media/` (git-ignored)
-- EXIF data is organized into local JSON files
-- Location search uses Open-Meteo geocoding; manual coordinate input works offline
-- AI enrichment is optional and build-time only — the frontend makes zero external API calls
-
-Review `public/media/` and `public/album.json` before any public deployment.
-
-## Tech Stack
-
-| Layer | Technology |
-|-------|-----------|
-| Frontend | React 19, TypeScript, Vite |
-| Map | `d3-geo`, `world-atlas`, `topojson-client` |
-| Photos | `exiftool-vendored`, `sharp` |
-| Icons | `lucide-react` |
-| AI | Any OpenAI-compatible API (optional, build-time only) |
+| | |
+|---|---|
+| **Frontend** | React 19 · TypeScript · Vite |
+| **Map** | d3-geo · world-atlas · topojson-client |
+| **Photos** | exiftool-vendored · sharp |
+| **Icons** | lucide-react |
+| **AI** | Any OpenAI-compatible API (optional, build-time only) |
+| **CI/CD** | GitHub Actions · ESLint · Prettier |
 
 ## Contributing
 
-See [CONTRIBUTING.md](CONTRIBUTING.md) for development setup and guidelines.
+See [CONTRIBUTING.md](CONTRIBUTING.md). Issues and PRs welcome.
 
 ## License
 
