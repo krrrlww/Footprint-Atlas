@@ -10,9 +10,7 @@ Thumbs.db
 .env.local
 .env.*.local
 
-# Generated media & data
-public/media/
-public/album.json
+# Generated data (local only)
 data/*.json
 !data/.gitkeep
 

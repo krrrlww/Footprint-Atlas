@@ -1,0 +1,1399 @@
+{
+  "mode": "all-places",
+  "title": "FOOTPRINT ATLAS",
+  "subtitle": "每一张照片都是一枚坐标，钉在时间的地图上",
+  "destination": "ALL PLACES",
+  "dateRange": "2023.07 - 2025.07",
+  "generatedAt": "2026-04-29T06:45:28.428Z",
+  "stats": {
+    "photos": 26,
+    "geotagged": 26,
+    "days": 7,
+    "stops": 23,
+    "years": 3,
+    "unplaced": 0
+  },
+  "days": [
+    {
+      "id": "period-01",
+      "dayKey": "2023-07",
+      "dateLabel": "2023.07",
+      "weekday": "ARCHIVE",
+      "title": "2023 · 07 FOOTPRINTS",
+      "subtitle": "6 处足迹 · 7 帧底片",
+      "summary": "6 处足迹，7 张底片，7 张定位于经纬之上。",
+      "stops": [
+        {
+          "id": "2023-07-stop-01",
+          "dayKey": "2023-07",
+          "index": 0,
+          "title": "青海省 · 大通回族土族自治县",
+          "subtitle": "IMG_0715.jpeg",
+          "type": "transit",
+          "time": "11:27",
+          "startAt": "2023-07-12T03:27:32.044Z",
+          "endAt": "2023-07-12T03:27:32.044Z",
+          "latitude": 37.303722,
+          "longitude": 101.424386,
+          "description": "青海省 · 大通回族土族自治县 · 坐标 37.3037, 101.4244，共 1 张照片。",
+          "photos": [
+            {
+              "id": "0003-img_0715",
+              "kind": "image",
+              "fileName": "IMG_0715.jpeg",
+              "src": "/media/full/0003-img_0715.jpg",
+              "thumb": "/media/thumbs/0003-img_0715.jpg",
+              "takenAt": "2023-07-12T03:27:32.044Z",
+              "timestamp": 1689132452044,
+              "latitude": 37.303722,
+              "longitude": 101.424386,
+              "width": 3024,
+              "height": 4032,
+              "dayKey": "2023-07-12",
+              "dayIndex": 1,
+              "placeName": null,
+              "locationSource": "exif",
+              "sourcePath": "raw/photos/IMG_0715.jpeg"
+            }
+          ],
+          "capsule": {
+            "poeticTitle": "雾涌青峦",
+            "journalNote": "风从山坳涌来，带着高原的凉意。云雾漫过青黑山脊，淌向蜿蜒公路，像一匹浸湿的丝绸。空气里浮着泥土与冷杉的腥甜，万籁俱寂，只听见自己呼吸，和远方小车碾过湿路的低吟。",
+            "mood": "雾中幽凉",
+            "scene": "云潮漫过青脊，孤车驶入深处",
+            "colors": [
+              "#3B4F2F",
+              "#D5D9D1",
+              "#C8CCC6"
+            ],
+            "tags": [
+              "大通",
+              "盘山公路",
+              "山岚",
+              "高原夏日",
+              "云深",
+              "清寂"
+            ]
+          }
+        },
+        {
+          "id": "2023-07-stop-02",
+          "dayKey": "2023-07",
+          "index": 1,
+          "title": "甘肃省 · 临泽县",
+          "subtitle": "2 张照片",
+          "type": "sight",
+          "time": "05:34-07:50",
+          "startAt": "2023-07-12T21:34:40.513Z",
+          "endAt": "2023-07-12T23:50:55.151Z",
+          "latitude": 38.967693,
+          "longitude": 100.067814,
+          "description": "甘肃省 · 临泽县 · 坐标 38.9677, 100.0678，共 2 张照片。",
+          "photos": [
+            {
+              "id": "0004-img_0766",
+              "kind": "image",
+              "fileName": "IMG_0766.jpeg",
+              "src": "/media/full/0004-img_0766.jpg",
+              "thumb": "/media/thumbs/0004-img_0766.jpg",
+              "takenAt": "2023-07-12T21:34:40.513Z",
+              "timestamp": 1689197680513,
+              "latitude": 38.975769,
+              "longitude": 100.07505,
+              "width": 4032,
+              "height": 3024,
+              "dayKey": "2023-07-13",
+              "dayIndex": 1,
+              "placeName": null,
+              "locationSource": "exif",
+              "sourcePath": "raw/photos/IMG_0766.jpeg"
+            },
+            {
+              "id": "0005-img_0799",
+              "kind": "image",
+              "fileName": "IMG_0799.jpeg",
+              "src": "/media/full/0005-img_0799.jpg",
+              "thumb": "/media/thumbs/0005-img_0799.jpg",
+              "takenAt": "2023-07-12T23:50:55.151Z",
+              "timestamp": 1689205855151,
+              "latitude": 38.959617,
+              "longitude": 100.060578,
+              "width": 3024,
+              "height": 4032,
+              "dayKey": "2023-07-13",
+              "dayIndex": 1,
+              "placeName": null,
+              "locationSource": "exif",
+              "sourcePath": "raw/photos/IMG_0799.jpeg"
+            }
+          ],
+          "capsule": {
+            "poeticTitle": "橘色走廊",
+            "journalNote": "五点半的临泽，风里还夹着戈壁的凉意。橘色正从云层背后烧起来，公路和栅栏沉在靛蓝的影子里。我踩着自己的脚步声向东走，看七点多的天空变成水洗的蓝，云絮像被阳光漂白的棉。",
+            "mood": "清冽初醒",
+            "scene": "橘光漫过栅栏，云絮铺满苍穹",
+            "colors": [
+              "#2B3E50",
+              "#E88B3C",
+              "#7DB9DE"
+            ],
+            "tags": [
+              "河西走廊",
+              "橘色地平线",
+              "公路栅栏",
+              "翻涌云絮",
+              "晨间清冽",
+              "无人时刻"
+            ]
+          }
+        },
+        {
+          "id": "2023-07-stop-03",
+          "dayKey": "2023-07",
+          "index": 2,
+          "title": "甘肃省 · 敦煌市",
+          "subtitle": "IMG_0952.jpeg",
+          "type": "sight",
+          "time": "08:08",
+          "startAt": "2023-07-14T00:08:12.132Z",
+          "endAt": "2023-07-14T00:08:12.132Z",
+          "latitude": 40.083794,
+          "longitude": 94.675003,
+          "description": "甘肃省 · 敦煌市 · 坐标 40.0838, 94.6750，共 1 张照片。",
+          "photos": [
+            {
+              "id": "0006-img_0952",
+              "kind": "image",
+              "fileName": "IMG_0952.jpeg",
+              "src": "/media/full/0006-img_0952.jpg",
+              "thumb": "/media/thumbs/0006-img_0952.jpg",
+              "takenAt": "2023-07-14T00:08:12.132Z",
+              "timestamp": 1689293292132,
+              "latitude": 40.083794,
+              "longitude": 94.675003,
+              "width": 4032,
+              "height": 3024,
+              "dayKey": "2023-07-14",
+              "dayIndex": 1,
+              "placeName": null,
+              "locationSource": "exif",
+              "sourcePath": "raw/photos/IMG_0952.jpeg"
+            }
+          ],
+          "capsule": {
+            "poeticTitle": "沙山晓梦",
+            "journalNote": "八点零八分，沙脊上的风还凉。俯瞰那弯蓝泉卧在金沙怀里，月泉阁的飞檐刚被晨光镀金。细沙在脚下簌簌低语，沙丘阴影还长，此刻的千年一汪清澈，只被我一个人惊动。",
+            "mood": "晨沙清寂",
+            "scene": "沙山拥碧泉，晨光镀古阁",
+            "colors": [
+              "#D4B896",
+              "#1B4D72",
+              "#5A6B3A"
+            ],
+            "tags": [
+              "月牙泉",
+              "鸣沙山",
+              "沙漠绿洲",
+              "晨风微凉",
+              "千年一瞬"
+            ]
+          }
+        },
+        {
+          "id": "2023-07-stop-04",
+          "dayKey": "2023-07",
+          "index": 3,
+          "title": "青海省 · 柴旦镇",
+          "subtitle": "IMG_1007.jpeg",
+          "type": "sight",
+          "time": "13:33",
+          "startAt": "2023-07-15T05:33:15.766Z",
+          "endAt": "2023-07-15T05:33:15.766Z",
+          "latitude": 37.847728,
+          "longitude": 95.261733,
+          "description": "青海省 · 柴旦镇 · 坐标 37.8477, 95.2617，共 1 张照片。",
+          "photos": [
+            {
+              "id": "0007-img_1007",
+              "kind": "image",
+              "fileName": "IMG_1007.jpeg",
+              "src": "/media/full/0007-img_1007.jpg",
+              "thumb": "/media/thumbs/0007-img_1007.jpg",
+              "takenAt": "2023-07-15T05:33:15.766Z",
+              "timestamp": 1689399195766,
+              "latitude": 37.847728,
+              "longitude": 95.261733,
+              "width": 2781,
+              "height": 3755,
+              "dayKey": "2023-07-15",
+              "dayIndex": 1,
+              "placeName": null,
+              "locationSource": "exif",
+              "sourcePath": "raw/photos/IMG_1007.jpeg"
+            }
+          ],
+          "capsule": {
+            "poeticTitle": "盐白洇蓝",
+            "journalNote": "正午日光有重量，压在肩头。湖水透明得不像真的，从近岸盐白洇开到深处宝蓝。风从盆地那端吹来，带着粗粝的干燥。远处那几个小黑点，也是误闯进这幅画的人吧。",
+            "mood": "澄明正午",
+            "scene": "白滩蓝水渐变，远山人影如蚁",
+            "colors": [
+              "#F0F4F8",
+              "#67E0F9",
+              "#0081A7"
+            ],
+            "tags": [
+              "柴旦镇",
+              "盐湖",
+              "水色渐变",
+              "透明感",
+              "高原正午"
+            ]
+          }
+        },
+        {
+          "id": "2023-07-stop-05",
+          "dayKey": "2023-07",
+          "index": 4,
+          "title": "青海省 · 察尔汗行政委员会",
+          "subtitle": "IMG_1054.jpeg",
+          "type": "sight",
+          "time": "18:14",
+          "startAt": "2023-07-15T10:14:00.030Z",
+          "endAt": "2023-07-15T10:14:00.030Z",
+          "latitude": 36.861133,
+          "longitude": 95.270308,
+          "description": "青海省 · 察尔汗行政委员会 · 坐标 36.8611, 95.2703，共 1 张照片。",
+          "photos": [
+            {
+              "id": "0008-img_1054",
+              "kind": "image",
+              "fileName": "IMG_1054.jpeg",
+              "src": "/media/full/0008-img_1054.jpg",
+              "thumb": "/media/thumbs/0008-img_1054.jpg",
+              "takenAt": "2023-07-15T10:14:00.030Z",
+              "timestamp": 1689416040030,
+              "latitude": 36.861133,
+              "longitude": 95.270308,
+              "width": 4032,
+              "height": 3024,
+              "dayKey": "2023-07-15",
+              "dayIndex": 1,
+              "placeName": null,
+              "locationSource": "exif",
+              "sourcePath": "raw/photos/IMG_1054.jpeg"
+            }
+          ],
+          "capsule": {
+            "poeticTitle": "盐岸一泓翠",
+            "journalNote": "18:14，我立在察尔汗绿得逼人的湖边。风揉碎一池玻璃，光斑在粗粝盐盖上跳跃。空气浮着极淡的矿物腥甜。四下寂静，只听风与水摩擦的轻响，像某种远古耳语。",
+            "mood": "旷野低语",
+            "scene": "盐白岸旁，风过绿波",
+            "colors": [
+              "#5CB85C",
+              "#C8C4B8",
+              "#A8D5A8"
+            ],
+            "tags": [
+              "察尔汗",
+              "盐湖",
+              "翠绿波纹",
+              "盐盖粗粝",
+              "旷野低语",
+              "矿物气息"
+            ]
+          }
+        },
+        {
+          "id": "2023-07-stop-06",
+          "dayKey": "2023-07",
+          "index": 5,
+          "title": "青海省 · 乌兰县",
+          "subtitle": "IMG_1109.jpeg",
+          "type": "sight",
+          "time": "18:21",
+          "startAt": "2023-07-16T10:21:44.204Z",
+          "endAt": "2023-07-16T10:21:44.204Z",
+          "latitude": 36.706028,
+          "longitude": 99.175475,
+          "description": "青海省 · 乌兰县 · 坐标 36.7060, 99.1755，共 1 张照片。",
+          "photos": [
+            {
+              "id": "0010-img_1109",
+              "kind": "image",
+              "fileName": "IMG_1109.jpeg",
+              "src": "/media/full/0010-img_1109.jpg",
+              "thumb": "/media/thumbs/0010-img_1109.jpg",
+              "takenAt": "2023-07-16T10:21:44.204Z",
+              "timestamp": 1689502904204,
+              "latitude": 36.706028,
+              "longitude": 99.175475,
+              "width": 4032,
+              "height": 3024,
+              "dayKey": "2023-07-16",
+              "dayIndex": 1,
+              "placeName": null,
+              "locationSource": "exif",
+              "sourcePath": "raw/photos/IMG_1109.jpeg"
+            }
+          ],
+          "capsule": {
+            "poeticTitle": "盐湖暮镜",
+            "journalNote": "傍晚六点的风带着咸涩，吹过脚踝没入浅滩。云从天上跌到湖里，远处的风车一动不动，仿佛时间也被盐晶凝固。我站在这面巨大的镜子中央，分不清哪边才是真实的天空。",
+            "mood": "寂静辽阔",
+            "scene": "天空跌入盐湖，风车守望远方",
+            "colors": [
+              "#145A8E",
+              "#F4F8FB",
+              "#A7BCC9"
+            ],
+            "tags": [
+              "天空之镜",
+              "风车列阵",
+              "云影倒悬",
+              "盐滩漫步",
+              "高原寂静"
+            ]
+          }
+        }
+      ],
+      "photoCount": 7,
+      "narrative": {
+        "title": "七月往旷野去",
+        "story": "孤车切开晨雾，青峦在窗外退去。橘色走廊里，我遇见了七月的第一缕光。沙山拥着碧泉醒来，正午时分，盐白洇蓝如镜，人影小如蚁。盐岸风起，绿波低语。直到暮色把天空倒进盐湖，风车在天边缓缓转动——这一程，我从雾中走来，在寂静里找到了盛夏的辽阔。",
+        "postcard": "亲爱的未来的我，当你重读这页，可还记得盐岸的风？那天空跌入湖心的蓝，我都替你收好了。愿你在拥挤日子里，仍保有那七月的寂静与辽阔。"
+      }
+    },
+    {
+      "id": "period-02",
+      "dayKey": "2024-02",
+      "dateLabel": "2024.02",
+      "weekday": "ARCHIVE",
+      "title": "2024 · 02 FOOTPRINTS",
+      "subtitle": "4 处足迹 · 6 帧底片",
+      "summary": "4 处足迹，6 张底片，6 张定位于经纬之上。",
+      "stops": [
+        {
+          "id": "2024-02-stop-01",
+          "dayKey": "2024-02",
+          "index": 0,
+          "title": "云南省 · 大理市",
+          "subtitle": "2 张照片",
+          "type": "transit",
+          "time": "08:08-09:39",
+          "startAt": "2024-02-04T00:08:52.241Z",
+          "endAt": "2024-02-04T01:39:12.518Z",
+          "latitude": 25.714171,
+          "longitude": 100.1959025,
+          "description": "云南省 · 大理市 · 坐标 25.7142, 100.1959，共 2 张照片。",
+          "photos": [
+            {
+              "id": "0014-img_5666",
+              "kind": "image",
+              "fileName": "IMG_5666.jpeg",
+              "src": "/media/full/0014-img_5666.jpg",
+              "thumb": "/media/thumbs/0014-img_5666.jpg",
+              "takenAt": "2024-02-04T00:08:52.241Z",
+              "timestamp": 1707005332241,
+              "latitude": 25.694656,
+              "longitude": 100.208319,
+              "width": 4032,
+              "height": 3024,
+              "dayKey": "2024-02-04",
+              "dayIndex": 2,
+              "placeName": null,
+              "locationSource": "exif",
+              "sourcePath": "raw/photos/IMG_5666.jpeg"
+            },
+            {
+              "id": "0015-img_5701",
+              "kind": "image",
+              "fileName": "IMG_5701.jpeg",
+              "src": "/media/full/0015-img_5701.jpg",
+              "thumb": "/media/thumbs/0015-img_5701.jpg",
+              "takenAt": "2024-02-04T01:39:12.518Z",
+              "timestamp": 1707010752518,
+              "latitude": 25.733686,
+              "longitude": 100.183486,
+              "width": 4032,
+              "height": 3024,
+              "dayKey": "2024-02-04",
+              "dayIndex": 2,
+              "placeName": null,
+              "locationSource": "exif",
+              "sourcePath": "raw/photos/IMG_5701.jpeg"
+            }
+          ],
+          "capsule": {
+            "poeticTitle": "洱海晨页",
+            "journalNote": "洱海的凉气灌进领口。八点零八分，那只鸟剪开金橘色的水面，翅声扑棱棱。九点半在岸边，苍山雪线亮得刺眼，枯枝像墨笔勾在蓝绢上，水鸟咕咚一声，把影子啄碎了。",
+            "mood": "清冽初醒",
+            "scene": "翅影剪开日出，雪线卧于苍洱",
+            "colors": [
+              "#F3B07B",
+              "#4A7BA5",
+              "#8B7D6B"
+            ],
+            "tags": [
+              "苍山雪线",
+              "洱海晨风",
+              "翅影剪水",
+              "立春清冽",
+              "水鸟咕咚"
+            ]
+          }
+        },
+        {
+          "id": "2024-02-stop-02",
+          "dayKey": "2024-02",
+          "index": 1,
+          "title": "云南省 · 大理市",
+          "subtitle": "IMG_5806.jpeg",
+          "type": "sight",
+          "time": "16:05",
+          "startAt": "2024-02-05T08:05:46.151Z",
+          "endAt": "2024-02-05T08:05:46.151Z",
+          "latitude": 25.831239,
+          "longitude": 100.220344,
+          "description": "云南省 · 大理市 · 坐标 25.8312, 100.2203，共 1 张照片。",
+          "photos": [
+            {
+              "id": "0016-img_5806",
+              "kind": "image",
+              "fileName": "IMG_5806.jpeg",
+              "src": "/media/full/0016-img_5806.jpg",
+              "thumb": "/media/thumbs/0016-img_5806.jpg",
+              "takenAt": "2024-02-05T08:05:46.151Z",
+              "timestamp": 1707120346151,
+              "latitude": 25.831239,
+              "longitude": 100.220344,
+              "width": 4032,
+              "height": 3024,
+              "dayKey": "2024-02-05",
+              "dayIndex": 2,
+              "placeName": null,
+              "locationSource": "exif",
+              "sourcePath": "raw/photos/IMG_5806.jpeg"
+            }
+          ],
+          "capsule": {
+            "poeticTitle": "洱海云隙光",
+            "journalNote": "二月初的洱海，四点的风裹着微凉水汽。云层裂开的瞬间，几束银光笔直扎进湖面，周围静得只剩快门声。我忽然觉得，这是天空单独写给我的一封信。",
+            "mood": "静谧神圣",
+            "scene": "浓云裂隙，光柱倾落洱海",
+            "colors": [
+              "#2c3e50",
+              "#bdc3c7",
+              "#85c1e9"
+            ],
+            "tags": [
+              "洱海",
+              "云隙光",
+              "寂静时刻",
+              "光的形状",
+              "大理"
+            ]
+          }
+        },
+        {
+          "id": "2024-02-stop-03",
+          "dayKey": "2024-02",
+          "index": 2,
+          "title": "云南省 · 玉龙纳西族自治县",
+          "subtitle": "IMG_5922.jpeg",
+          "type": "sight",
+          "time": "10:19",
+          "startAt": "2024-02-07T02:19:13.671Z",
+          "endAt": "2024-02-07T02:19:13.671Z",
+          "latitude": 27.128106,
+          "longitude": 100.250603,
+          "description": "云南省 · 玉龙纳西族自治县 · 坐标 27.1281, 100.2506，共 1 张照片。",
+          "photos": [
+            {
+              "id": "0017-img_5922",
+              "kind": "image",
+              "fileName": "IMG_5922.jpeg",
+              "src": "/media/full/0017-img_5922.jpg",
+              "thumb": "/media/thumbs/0017-img_5922.jpg",
+              "takenAt": "2024-02-07T02:19:13.671Z",
+              "timestamp": 1707272353671,
+              "latitude": 27.128106,
+              "longitude": 100.250603,
+              "width": 4032,
+              "height": 3024,
+              "dayKey": "2024-02-07",
+              "dayIndex": 2,
+              "placeName": null,
+              "locationSource": "exif",
+              "sourcePath": "raw/photos/IMG_5922.jpeg"
+            }
+          ],
+          "capsule": {
+            "poeticTitle": "碧潭雪影",
+            "journalNote": "十点的风掠过湖面，带着雪山的凛冽。湖水是揉碎的松石绿，小岛上的枯枝还挂着去年的秋色。抬头望，云雾正缓缓吞没雪线，天地静得只剩下自己的呼吸。",
+            "mood": "清冽幽寂",
+            "scene": "雪山隐于云，碧水绕枯岛",
+            "colors": [
+              "#3EC1AD",
+              "#AEB6BF",
+              "#2E4033"
+            ],
+            "tags": [
+              "玉龙雪山",
+              "蓝月谷",
+              "松石绿湖",
+              "云吞雪顶",
+              "凛冽晨风",
+              "秘境枯枝"
+            ]
+          }
+        },
+        {
+          "id": "2024-02-stop-04",
+          "dayKey": "2024-02",
+          "index": 3,
+          "title": "云南省 · 玉龙纳西族自治县",
+          "subtitle": "2 张照片",
+          "type": "sight",
+          "time": "10:38-13:08",
+          "startAt": "2024-02-09T02:38:27.678Z",
+          "endAt": "2024-02-09T05:08:19.223Z",
+          "latitude": 27.1034795,
+          "longitude": 100.227292,
+          "description": "云南省 · 玉龙纳西族自治县 · 坐标 27.1035, 100.2273，共 2 张照片。",
+          "photos": [
+            {
+              "id": "0019-img_6037",
+              "kind": "image",
+              "fileName": "IMG_6037.jpeg",
+              "src": "/media/full/0019-img_6037.jpg",
+              "thumb": "/media/thumbs/0019-img_6037.jpg",
+              "takenAt": "2024-02-09T02:38:27.678Z",
+              "timestamp": 1707446307678,
+              "latitude": 27.102031,
+              "longitude": 100.258278,
+              "width": 4032,
+              "height": 3024,
+              "dayKey": "2024-02-09",
+              "dayIndex": 2,
+              "placeName": null,
+              "locationSource": "exif",
+              "sourcePath": "raw/photos/IMG_6037.jpeg"
+            },
+            {
+              "id": "0020-img_6086",
+              "kind": "image",
+              "fileName": "IMG_6086.jpeg",
+              "src": "/media/full/0020-img_6086.jpg",
+              "thumb": "/media/thumbs/0020-img_6086.jpg",
+              "takenAt": "2024-02-09T05:08:19.223Z",
+              "timestamp": 1707455299223,
+              "latitude": 27.104928,
+              "longitude": 100.196306,
+              "width": 4032,
+              "height": 3024,
+              "dayKey": "2024-02-09",
+              "dayIndex": 2,
+              "placeName": null,
+              "locationSource": "exif",
+              "sourcePath": "raw/photos/IMG_6086.jpeg"
+            }
+          ],
+          "capsule": {
+            "poeticTitle": "雪顶听风",
+            "journalNote": "经幡在风里噼啪作响，蓝天下彩绸翻涌。越往上空气越薄，雪光刺得人眯眼，细雪被风卷着打在围巾上。栈道木板吱呀，混着游人的喘息。除夕上午，我在四千米高处，听风像诵经般掠过耳畔。",
+            "mood": "天风凛凛",
+            "scene": "山脚经幡猎猎，山顶栈道隐入雾",
+            "colors": [
+              "#1976d2",
+              "#eeeeee",
+              "#78909c"
+            ],
+            "tags": [
+              "玉龙雪山",
+              "五色经幡",
+              "踏雪栈道",
+              "猎猎风声",
+              "除夕登高"
+            ]
+          }
+        }
+      ],
+      "photoCount": 6,
+      "narrative": {
+        "title": "苍洱二月帖",
+        "story": "二月初，我在洱海等一场初醒。翅影剪开日出时，苍山雪线卧于湖波。浓云裂隙间，光柱倾落，水面恍若神谕。午后转至碧潭，雪山隐于云，碧水绕枯岛，清冽得让人失语。终攀雪顶，经幡猎猎，栈道没入雾中，天风凛凛吹散喧嚣。六帧光影，是苍洱予我的私密诗行。",
+        "postcard": "亲爱的未来的我，愿你仍记得这六帧苍洱的光。若日后日子拥挤，请为一场日出腾出心跳。别忘了我曾在雾中听风，那样清澈地活过。"
+      }
+    },
+    {
+      "id": "period-03",
+      "dayKey": "2024-08",
+      "dateLabel": "2024.08",
+      "weekday": "ARCHIVE",
+      "title": "2024 · 08 FOOTPRINTS",
+      "subtitle": "6 处足迹 · 6 帧底片",
+      "summary": "6 处足迹，6 张底片，6 张定位于经纬之上。",
+      "stops": [
+        {
+          "id": "2024-08-stop-01",
+          "dayKey": "2024-08",
+          "index": 0,
+          "title": "广西壮族自治区 · 青秀区",
+          "subtitle": "IMG_9223.jpeg",
+          "type": "transit",
+          "time": "15:55",
+          "startAt": "2024-08-14T07:55:35.989Z",
+          "endAt": "2024-08-14T07:55:35.989Z",
+          "latitude": 22.791711,
+          "longitude": 108.391997,
+          "description": "广西壮族自治区 · 青秀区 · 坐标 22.7917, 108.3920，共 1 张照片。",
+          "photos": [
+            {
+              "id": "0021-img_9223",
+              "kind": "image",
+              "fileName": "IMG_9223.jpeg",
+              "src": "/media/full/0021-img_9223.jpg",
+              "thumb": "/media/thumbs/0021-img_9223.jpg",
+              "takenAt": "2024-08-14T07:55:35.989Z",
+              "timestamp": 1723622135989,
+              "latitude": 22.791711,
+              "longitude": 108.391997,
+              "width": 2421,
+              "height": 3516,
+              "dayKey": "2024-08-14",
+              "dayIndex": 3,
+              "placeName": null,
+              "locationSource": "exif",
+              "sourcePath": "raw/photos/IMG_9223.jpeg"
+            }
+          ],
+          "capsule": {
+            "poeticTitle": "绿涌古檐",
+            "journalNote": "指尖拂过瓦沿，触到一片潮湿的凉。下午四点前的天光被重林筛得柔和，新叶亮得像涂了釉，旧瓦却沉在墨色里。空气缠着苔藓与朽木的气息，山风一过，满耳都是叶子翻涌的声响。",
+            "mood": "古意幽深",
+            "scene": "乌檐沉进绿海，旧瓦生凉",
+            "colors": [
+              "#3D4238",
+              "#6B8E4E",
+              "#1E2E1A"
+            ],
+            "tags": [
+              "青秀山",
+              "黑瓦",
+              "绿意深浓",
+              "盛夏余光",
+              "古韵",
+              "山风"
+            ]
+          }
+        },
+        {
+          "id": "2024-08-stop-02",
+          "dayKey": "2024-08",
+          "index": 1,
+          "title": "广西壮族自治区 · 海城区",
+          "subtitle": "IMG_9362.jpeg",
+          "type": "sight",
+          "time": "18:16",
+          "startAt": "2024-08-16T10:16:24.177Z",
+          "endAt": "2024-08-16T10:16:24.177Z",
+          "latitude": 21.496867,
+          "longitude": 109.136681,
+          "description": "广西壮族自治区 · 海城区 · 坐标 21.4969, 109.1367，共 1 张照片。",
+          "photos": [
+            {
+              "id": "0022-img_9362",
+              "kind": "image",
+              "fileName": "IMG_9362.jpeg",
+              "src": "/media/full/0022-img_9362.jpg",
+              "thumb": "/media/thumbs/0022-img_9362.jpg",
+              "takenAt": "2024-08-16T10:16:24.177Z",
+              "timestamp": 1723803384177,
+              "latitude": 21.496867,
+              "longitude": 109.136681,
+              "width": 3024,
+              "height": 4032,
+              "dayKey": "2024-08-16",
+              "dayIndex": 3,
+              "placeName": null,
+              "locationSource": "exif",
+              "sourcePath": "raw/photos/IMG_9362.jpeg"
+            }
+          ],
+          "capsule": {
+            "poeticTitle": "暮色浸潮声",
+            "journalNote": "傍晚六点十六分，赤脚踩在温热的沙上。天是灰蓝色的，云压得很低，海水泛着淡淡的腥咸。远处楼群影影绰绰，近处人声与细浪交织，有人撑着伞从水里走回岸边。风里有潮湿的暮气，像夏天未说完的话。",
+            "mood": "热闹而慵懒",
+            "scene": "低云下，人影散入灰蓝海",
+            "colors": [
+              "#C4B49A",
+              "#7E8E8D",
+              "#A8B2B7"
+            ],
+            "tags": [
+              "北海",
+              "暮色海滩",
+              "踏浪人语",
+              "烟火人间",
+              "潮湿的风"
+            ]
+          }
+        },
+        {
+          "id": "2024-08-stop-03",
+          "dayKey": "2024-08",
+          "index": 2,
+          "title": "广西壮族自治区 · 柳城县",
+          "subtitle": "IMG_9394.jpeg",
+          "type": "sight",
+          "time": "17:59",
+          "startAt": "2024-08-17T09:59:15.203Z",
+          "endAt": "2024-08-17T09:59:15.203Z",
+          "latitude": 24.546233,
+          "longitude": 109.490731,
+          "description": "广西壮族自治区 · 柳城县 · 坐标 24.5462, 109.4907，共 1 张照片。",
+          "photos": [
+            {
+              "id": "0023-img_9394",
+              "kind": "image",
+              "fileName": "IMG_9394.jpeg",
+              "src": "/media/full/0023-img_9394.jpg",
+              "thumb": "/media/thumbs/0023-img_9394.jpg",
+              "takenAt": "2024-08-17T09:59:15.203Z",
+              "timestamp": 1723888755203,
+              "latitude": 24.546233,
+              "longitude": 109.490731,
+              "width": 4032,
+              "height": 3024,
+              "dayKey": "2024-08-17",
+              "dayIndex": 3,
+              "placeName": null,
+              "locationSource": "exif",
+              "sourcePath": "raw/photos/IMG_9394.jpeg"
+            }
+          ],
+          "capsule": {
+            "poeticTitle": "暮色漫山岚",
+            "journalNote": "柳城，八月十七日傍晚。西天漏出一块靛蓝，云絮镶着淡金边。远山浸在牛乳般的雾霭里，风掠过峰丛，送来稻田的腥甜。白墙村舍静默如谜，唯余蝉鸣在渐暗光线里起伏。",
+            "mood": "暮色低垂",
+            "scene": "云隙漏光，山雾漫过桂北村落",
+            "colors": [
+              "#8FAEC4",
+              "#657A82",
+              "#E0DCD6"
+            ],
+            "tags": [
+              "喀斯特轮廓",
+              "暮色温柔",
+              "山岚",
+              "桂北八月",
+              "云隙光",
+              "小镇黄昏"
+            ]
+          }
+        },
+        {
+          "id": "2024-08-stop-04",
+          "dayKey": "2024-08",
+          "index": 3,
+          "title": "广西壮族自治区 · 桂林市",
+          "subtitle": "IMG_9407.jpeg",
+          "type": "sight",
+          "time": "11:23",
+          "startAt": "2024-08-18T03:23:43.140Z",
+          "endAt": "2024-08-18T03:23:43.140Z",
+          "latitude": 25.271342,
+          "longitude": 110.291519,
+          "description": "广西壮族自治区 · 桂林市 · 坐标 25.2713, 110.2915，共 1 张照片。",
+          "photos": [
+            {
+              "id": "0024-img_9407",
+              "kind": "image",
+              "fileName": "IMG_9407.jpeg",
+              "src": "/media/full/0024-img_9407.jpg",
+              "thumb": "/media/thumbs/0024-img_9407.jpg",
+              "takenAt": "2024-08-18T03:23:43.140Z",
+              "timestamp": 1723951423140,
+              "latitude": 25.271342,
+              "longitude": 110.291519,
+              "width": 4032,
+              "height": 3024,
+              "dayKey": "2024-08-18",
+              "dayIndex": 3,
+              "placeName": null,
+              "locationSource": "exif",
+              "sourcePath": "raw/photos/IMG_9407.jpeg"
+            }
+          ],
+          "capsule": {
+            "poeticTitle": "水月浮光",
+            "journalNote": "十一时二十三分，江风裹挟着藻类的腥甜扑在脸上。竹筏的马达声嗡嗡震着脚底，象鼻山的石洞把阳光滤成一轮冷白。绿伞挡不住八月的湿热，救生衣闷着背，而水波正把远处的笑声推得很近。",
+            "mood": "江风湿热",
+            "scene": "江上彩伞浮动，巨象垂饮",
+            "colors": [
+              "#6B7A6F",
+              "#8A9286",
+              "#C8D64A"
+            ],
+            "tags": [
+              "象鼻山",
+              "漓江竹筏",
+              "水月洞",
+              "江风腥甜",
+              "八月暑气",
+              "伞下浮生"
+            ]
+          }
+        },
+        {
+          "id": "2024-08-stop-05",
+          "dayKey": "2024-08",
+          "index": 4,
+          "title": "广西壮族自治区 · 阳朔县",
+          "subtitle": "IMG_9472.jpeg",
+          "type": "sight",
+          "time": "09:55",
+          "startAt": "2024-08-19T01:55:27.611Z",
+          "endAt": "2024-08-19T01:55:27.611Z",
+          "latitude": 24.922839,
+          "longitude": 110.496842,
+          "description": "广西壮族自治区 · 阳朔县 · 坐标 24.9228, 110.4968，共 1 张照片。",
+          "photos": [
+            {
+              "id": "0025-img_9472",
+              "kind": "image",
+              "fileName": "IMG_9472.jpeg",
+              "src": "/media/full/0025-img_9472.jpg",
+              "thumb": "/media/thumbs/0025-img_9472.jpg",
+              "takenAt": "2024-08-19T01:55:27.611Z",
+              "timestamp": 1724032527611,
+              "latitude": 24.922839,
+              "longitude": 110.496842,
+              "width": 3865,
+              "height": 2855,
+              "dayKey": "2024-08-19",
+              "dayIndex": 3,
+              "placeName": null,
+              "locationSource": "exif",
+              "sourcePath": "raw/photos/IMG_9472.jpeg"
+            }
+          ],
+          "capsule": {
+            "poeticTitle": "漓江云起时",
+            "journalNote": "九点多，江风还凉。竹筏推开黄绿色的水，马达声闷闷的。两岸青山像被水洗过，绿得发亮。云走得慢，光从云缝里漏下来，落在船头那面小红旗上。有淡淡的江水腥气和竹子的清香混在一起。",
+            "mood": "清朗温润",
+            "scene": "一筏穿江，两岸青峰相对出",
+            "colors": [
+              "#7EB8D8",
+              "#2E4A3B",
+              "#6E7F5B"
+            ],
+            "tags": [
+              "漓江竹筏",
+              "峰林如洗",
+              "江风微凉",
+              "夏末晨光",
+              "舟行画中"
+            ]
+          }
+        },
+        {
+          "id": "2024-08-stop-06",
+          "dayKey": "2024-08",
+          "index": 5,
+          "title": "广西壮族自治区 · 阳朔县",
+          "subtitle": "IMG_9490.jpeg",
+          "type": "sight",
+          "time": "16:47",
+          "startAt": "2024-08-19T08:47:51.961Z",
+          "endAt": "2024-08-19T08:47:51.961Z",
+          "latitude": 24.749331,
+          "longitude": 110.460267,
+          "description": "广西壮族自治区 · 阳朔县 · 坐标 24.7493, 110.4603，共 1 张照片。",
+          "photos": [
+            {
+              "id": "0026-img_9490",
+              "kind": "image",
+              "fileName": "IMG_9490.jpeg",
+              "src": "/media/full/0026-img_9490.jpg",
+              "thumb": "/media/thumbs/0026-img_9490.jpg",
+              "takenAt": "2024-08-19T08:47:51.961Z",
+              "timestamp": 1724057271961,
+              "latitude": 24.749331,
+              "longitude": 110.460267,
+              "width": 4032,
+              "height": 3024,
+              "dayKey": "2024-08-19",
+              "dayIndex": 3,
+              "placeName": null,
+              "locationSource": "exif",
+              "sourcePath": "raw/photos/IMG_9490.jpeg"
+            }
+          ],
+          "capsule": {
+            "poeticTitle": "绿嶂人家",
+            "journalNote": "十六点四十七分，阳朔的阳光把喀斯特山峰照得发亮。白墙楼房缩在山脚，像被绿色巨嶂环抱着。空气里是草木蒸腾的腥甜味，蝉鸣从头顶浓密的枝叶里漏下来，盖过了远处的人声。",
+            "mood": "蝉鸣盛夏",
+            "scene": "巨嶂环立，白楼静卧如舟",
+            "colors": [
+              "#4A6B3F",
+              "#8CC8E6",
+              "#E8E4D5"
+            ],
+            "tags": [
+              "阳朔",
+              "喀斯特",
+              "白墙青山",
+              "盛夏蝉鸣",
+              "人间渺小"
+            ]
+          }
+        }
+      ],
+      "photoCount": 6,
+      "narrative": {
+        "title": "漓水枕夏记",
+        "story": "踏入绿涌古檐那日，旧瓦滤去了暑气。我追向暮色里的潮声，看人群散入灰蓝海，又在山岚漫过桂北村落时静候云隙漏光。江上彩伞浮动，巨象垂饮，湿热的风裹着烟火。最难忘一筏穿江，两岸青峰相对出。最终宿于绿嶂人家，听蝉鸣盛夏，恍觉此行是被山水轻轻托住的一梦。",
+        "postcard": "亲爱的未来的我，你还好吗？是否记得这个八月，漓江的云、旧瓦的绿，和那潮湿清朗的黄昏。我把蝉鸣藏进纸里了。累了，就回这绿海里躲一躲。"
+      }
+    },
+    {
+      "id": "period-04",
+      "dayKey": "2024-11",
+      "dateLabel": "2024.11",
+      "weekday": "ARCHIVE",
+      "title": "2024 · 11 FOOTPRINT",
+      "subtitle": "1 处足迹 · 1 帧底片",
+      "summary": "1 处足迹，1 张底片，1 张定位于经纬之上。",
+      "stops": [
+        {
+          "id": "2024-11-stop-01",
+          "dayKey": "2024-11",
+          "index": 0,
+          "title": "四川省 · 七里街道",
+          "subtitle": "IMG_1067.jpeg",
+          "type": "transit",
+          "time": "15:35",
+          "startAt": "2024-11-09T07:35:01.576Z",
+          "endAt": "2024-11-09T07:35:01.576Z",
+          "latitude": 31.573581,
+          "longitude": 105.987656,
+          "description": "四川省 · 七里街道 · 坐标 31.5736, 105.9877，共 1 张照片。",
+          "photos": [
+            {
+              "id": "0009-img_1067",
+              "kind": "image",
+              "fileName": "IMG_1067.jpeg",
+              "src": "/media/full/0009-img_1067.jpg",
+              "thumb": "/media/thumbs/0009-img_1067.jpg",
+              "takenAt": "2024-11-09T07:35:01.576Z",
+              "timestamp": 1731137701576,
+              "latitude": 31.573581,
+              "longitude": 105.987656,
+              "width": 4032,
+              "height": 3024,
+              "dayKey": "2024-11-09",
+              "dayIndex": 4,
+              "placeName": null,
+              "locationSource": "exif",
+              "sourcePath": "raw/photos/IMG_1067.jpeg"
+            }
+          ],
+          "capsule": {
+            "poeticTitle": "江阔云低",
+            "journalNote": "下午三点半，江风带着秋凉。云层低垂，压在灰绿的江面上，两座长桥如弦般静默。对岸楼房密密麻麻铺向淡青远山，空气里满是江水潮湿的腥甜。安静得仿佛能听见云移动的声音。",
+            "mood": "沉静悠远",
+            "scene": "长桥卧波，一城向山蔓延",
+            "colors": [
+              "#8a9e8e",
+              "#c0c8d0",
+              "#6e7d85"
+            ],
+            "tags": [
+              "嘉陵江",
+              "长桥",
+              "低云",
+              "秋意",
+              "山城旧事"
+            ]
+          }
+        }
+      ],
+      "photoCount": 1,
+      "narrative": {
+        "title": "江阔云低时",
+        "story": "十一月末，我停在这座向山而卧的城。长桥横波，像旧书脊承住岁月。起初只道是寻常渡江，行至桥心忽觉云低得能触碰，一城灯火正沿着山脊缓缓上爬。风从江面来，吹散诸事，只剩远山如黛，我与此刻，两不相欠。",
+        "postcard": "亲爱的未来的我，此刻江阔云低，长桥卧波。十一月的风很慢，一城灯火向山而行。若你感到疲惫，请记得总有地方让心事很轻，像云停在山腰。"
+      }
+    },
+    {
+      "id": "period-05",
+      "dayKey": "2024-12",
+      "dateLabel": "2024.12",
+      "weekday": "ARCHIVE",
+      "title": "2024 · 12 FOOTPRINT",
+      "subtitle": "1 处足迹 · 1 帧底片",
+      "summary": "1 处足迹，1 张底片，1 张定位于经纬之上。",
+      "stops": [
+        {
+          "id": "2024-12-stop-01",
+          "dayKey": "2024-12",
+          "index": 0,
+          "title": "四川省 · 成华区",
+          "subtitle": "IMG_1531.jpeg",
+          "type": "transit",
+          "time": "14:35",
+          "startAt": "2024-12-05T06:35:55.543Z",
+          "endAt": "2024-12-05T06:35:55.543Z",
+          "latitude": 30.678303,
+          "longitude": 104.101075,
+          "description": "四川省 · 成华区 · 坐标 30.6783, 104.1011，共 1 张照片。",
+          "photos": [
+            {
+              "id": "0011-img_1531",
+              "kind": "image",
+              "fileName": "IMG_1531.jpeg",
+              "src": "/media/full/0011-img_1531.jpg",
+              "thumb": "/media/thumbs/0011-img_1531.jpg",
+              "takenAt": "2024-12-05T06:35:55.543Z",
+              "timestamp": 1733380555543,
+              "latitude": 30.678303,
+              "longitude": 104.101075,
+              "width": 2769,
+              "height": 3720,
+              "dayKey": "2024-12-05",
+              "dayIndex": 5,
+              "placeName": null,
+              "locationSource": "exif",
+              "sourcePath": "raw/photos/IMG_1531.jpeg"
+            }
+          ],
+          "capsule": {
+            "poeticTitle": "钢铁森林来信",
+            "journalNote": "午后两点半，成华区的风穿过楼群，玻璃幕墙泛着冷冽的银。我站在「HELLO 成都」牌下仰头望去，钢铁森林沉默巍峨，指节微凉，而红底白字的问候，让疏离里多了一丝暖意。",
+            "mood": "清冽都市",
+            "scene": "仰角，冬阳掠过幕墙，问候牌斜入画",
+            "colors": [
+              "#D0D8E0",
+              "#8A9AA8",
+              "#7A3E3E"
+            ],
+            "tags": [
+              "成华区",
+              "HELLO成都",
+              "玻璃幕墙",
+              "钢铁森林",
+              "冬日晴空",
+              "城市天际线"
+            ]
+          }
+        }
+      ],
+      "photoCount": 1,
+      "narrative": {
+        "title": "冬信，从幕墙来",
+        "story": "十二月，我把自己扔进这座清冽的都市。风带着寒意穿过街道，我却在某个仰头的瞬间被捕获了——冬阳如融化的金子，顺着玻璃幕墙缓缓流淌，而一块歪斜的问候牌恰好跌进镜头，像一封迟来的信。原来钢铁森林里，也藏着如此柔软的埋伏。",
+        "postcard": "亲爱的未来的我，此刻冬阳掠过幕墙。若你感到疲惫，请记住这个十二月，曾有块歪斜的问候牌替城市拥抱了我。愿你永远保留仰头的温柔。"
+      }
+    },
+    {
+      "id": "period-06",
+      "dayKey": "2025-02",
+      "dateLabel": "2025.02",
+      "weekday": "ARCHIVE",
+      "title": "2025 · 02 FOOTPRINTS",
+      "subtitle": "4 处足迹 · 4 帧底片",
+      "summary": "4 处足迹，4 张底片，4 张定位于经纬之上。",
+      "stops": [
+        {
+          "id": "2025-02-stop-01",
+          "dayKey": "2025-02",
+          "index": 0,
+          "title": "长沙 · 本地点库",
+          "subtitle": "长沙 · 本地点库",
+          "type": "transit",
+          "time": "10:31",
+          "startAt": "2025-02-09T02:31:00.000Z",
+          "endAt": "2025-02-09T02:31:00.000Z",
+          "latitude": 28.2282,
+          "longitude": 112.9388,
+          "description": "湖南省 · 岳麓区 · 坐标 28.2282, 112.9388，共 1 张照片。",
+          "photos": [
+            {
+              "id": "0001-dsc_0813.jpg",
+              "kind": "image",
+              "fileName": "DSC_0813.JPG",
+              "src": "/media/full/0001-dsc_0813.jpg.jpg",
+              "thumb": "/media/thumbs/0001-dsc_0813.jpg.jpg",
+              "takenAt": "2025-02-09T02:31:00.000Z",
+              "timestamp": 1739068260000,
+              "latitude": 28.2282,
+              "longitude": 112.9388,
+              "width": 3738,
+              "height": 2687,
+              "dayKey": "2025-02-09",
+              "dayIndex": 6,
+              "placeName": "长沙 · 本地点库",
+              "locationSource": "manual",
+              "sourcePath": "raw/photos/DSC_0813.JPG"
+            }
+          ],
+          "capsule": {
+            "poeticTitle": "橘洲晴望",
+            "journalNote": "二月的江风裹着湘水汽，十点半的阳光却烈得很，把橘色飞檐照得发烫。抬头与巨像对视，他沉默地望向对岸高楼。头顶枯枝在蓝天下划出细瘦影子，此刻，古老的注视与我的呼吸悄然重叠。",
+            "mood": "凛冽晴光",
+            "scene": "朱檐碧落，巨像凝眸",
+            "colors": [
+              "#2B7DE9",
+              "#D97706",
+              "#94A3B8"
+            ],
+            "tags": [
+              "橘子洲",
+              "飞檐翘角",
+              "早春晴光",
+              "古今同框",
+              "凛冽江风"
+            ]
+          }
+        },
+        {
+          "id": "2025-02-stop-02",
+          "dayKey": "2025-02",
+          "index": 1,
+          "title": "萍乡市, 萍乡, 江西, 中国",
+          "subtitle": "萍乡市, 萍乡, 江西, 中国",
+          "type": "sight",
+          "time": "00:31",
+          "startAt": "2025-02-10T16:31:00.000Z",
+          "endAt": "2025-02-10T16:31:00.000Z",
+          "latitude": 27.61672,
+          "longitude": 113.85353,
+          "description": "江西省 · 安源区 · 坐标 27.6167, 113.8535，共 1 张照片。",
+          "photos": [
+            {
+              "id": "0002-dsc_0899.jpg",
+              "kind": "image",
+              "fileName": "DSC_0899.JPG",
+              "src": "/media/full/0002-dsc_0899.jpg.jpg",
+              "thumb": "/media/thumbs/0002-dsc_0899.jpg.jpg",
+              "takenAt": "2025-02-10T16:31:00.000Z",
+              "timestamp": 1739205060000,
+              "latitude": 27.61672,
+              "longitude": 113.85353,
+              "width": 5268,
+              "height": 3567,
+              "dayKey": "2025-02-11",
+              "dayIndex": 6,
+              "placeName": "萍乡市, 萍乡, 江西, 中国",
+              "locationSource": "manual",
+              "sourcePath": "raw/photos/DSC_0899.JPG"
+            }
+          ],
+          "capsule": {
+            "poeticTitle": "春夜山门灯",
+            "journalNote": "子夜过，山门空荡。大灯笼在风里轻轻晃，把“武功山”三个字烫成金色。空气里还有鞭炮的余味，我仰起头，看光晕在冷夜里漫开，像一颗巨大的暖色心脏悬在胸前。",
+            "mood": "深夜暖光",
+            "scene": "子夜山门下红灯笼独明",
+            "colors": [
+              "#D62828",
+              "#7A9DB5",
+              "#080E1C"
+            ],
+            "tags": [
+              "武功山",
+              "萍乡",
+              "红灯笼",
+              "春节旅途",
+              "子夜",
+              "山门"
+            ]
+          }
+        },
+        {
+          "id": "2025-02-stop-03",
+          "dayKey": "2025-02",
+          "index": 2,
+          "title": "湖南省 · 永定区",
+          "subtitle": "IMG_2827.jpeg",
+          "type": "sight",
+          "time": "17:14",
+          "startAt": "2025-02-12T09:14:13.376Z",
+          "endAt": "2025-02-12T09:14:13.376Z",
+          "latitude": 29.052236,
+          "longitude": 110.483292,
+          "description": "湖南省 · 永定区 · 坐标 29.0522, 110.4833，共 1 张照片。",
+          "photos": [
+            {
+              "id": "0012-img_2827",
+              "kind": "image",
+              "fileName": "IMG_2827.jpeg",
+              "src": "/media/full/0012-img_2827.jpg",
+              "thumb": "/media/thumbs/0012-img_2827.jpg",
+              "takenAt": "2025-02-12T09:14:13.376Z",
+              "timestamp": 1739351653376,
+              "latitude": 29.052236,
+              "longitude": 110.483292,
+              "width": 4032,
+              "height": 3024,
+              "dayKey": "2025-02-12",
+              "dayIndex": 6,
+              "placeName": null,
+              "locationSource": "exif",
+              "sourcePath": "raw/photos/IMG_2827.jpeg"
+            }
+          ],
+          "capsule": {
+            "poeticTitle": "天门向晚",
+            "journalNote": "寒气透靴。十七点十四分，天门含住灰白天光，像巨兽微张的嘴。山风卷竹腥与岩潮穿洞来，脚步声在石壁间轻撞。我扶栏抬头，光从洞口倾泻，人如蚁行，正被缓缓吞入山的腹地。",
+            "mood": "向晚微凉",
+            "scene": "石阶蜿蜒，人影没入巨洞天光",
+            "colors": [
+              "#3F3B38",
+              "#5C6348",
+              "#BABDB6"
+            ],
+            "tags": [
+              "天门洞",
+              "通天梯",
+              "岩壁回响",
+              "山风竹腥",
+              "向晚微凉"
+            ]
+          }
+        },
+        {
+          "id": "2025-02-stop-04",
+          "dayKey": "2025-02",
+          "index": 3,
+          "title": "四川省 · 九寨沟县",
+          "subtitle": "IMG_3075.jpeg",
+          "type": "sight",
+          "time": "11:38",
+          "startAt": "2025-02-20T03:38:44.087Z",
+          "endAt": "2025-02-20T03:38:44.087Z",
+          "latitude": 33.161361,
+          "longitude": 103.879181,
+          "description": "四川省 · 九寨沟县 · 坐标 33.1614, 103.8792，共 1 张照片。",
+          "photos": [
+            {
+              "id": "0013-img_3075",
+              "kind": "image",
+              "fileName": "IMG_3075.jpeg",
+              "src": "/media/full/0013-img_3075.jpg",
+              "thumb": "/media/thumbs/0013-img_3075.jpg",
+              "takenAt": "2025-02-20T03:38:44.087Z",
+              "timestamp": 1740022724087,
+              "latitude": 33.161361,
+              "longitude": 103.879181,
+              "width": 3546,
+              "height": 2334,
+              "dayKey": "2025-02-20",
+              "dayIndex": 6,
+              "placeName": null,
+              "locationSource": "exif",
+              "sourcePath": "raw/photos/IMG_3075.jpeg"
+            }
+          ],
+          "capsule": {
+            "poeticTitle": "半山冰雪一湖翠",
+            "journalNote": "十一点三十八分，阳光把水面切成深浅不一的绿，水底的钙华像张沉睡的地图。我触了触左侧探向湖面的枯枝，冰凉。远处雪山静默，唯有这汪碧水绿得贪婪，吞掉了整个冬天的声响。",
+            "mood": "清冽透澈",
+            "scene": "雪线之下，一湖碧水静卧林间",
+            "colors": [
+              "#2EC4A5",
+              "#0B4D3C",
+              "#A89B8C"
+            ],
+            "tags": [
+              "九寨沟",
+              "钙华池",
+              "冬末雪线",
+              "清冽",
+              "水底流光",
+              "寂静"
+            ]
+          }
+        }
+      ],
+      "photoCount": 4,
+      "narrative": {
+        "title": "朱檐与雪线",
+        "story": "二月，我在橘洲与巨像对望，朱檐挑起凛冽晴光。子夜驱车至山门，一盏红灯笼在墨色里独明，暖得人眼眶发热。次日向晚攀上天门，石阶蜿蜒没入巨洞天光，人影如微尘。最后跌进半山那泓翠色——雪线之下，碧水替我将整个冬天的清冽，一饮而尽。",
+        "postcard": "亲爱的未来的我，若你此刻疲惫，请想起二月山门那盏红灯的暖。雪线下的碧水与橘洲晴光，我都替你收好了。冬天会过去，愿你永远有路可走。"
+      }
+    },
+    {
+      "id": "period-07",
+      "dayKey": "2025-07",
+      "dateLabel": "2025.07",
+      "weekday": "ARCHIVE",
+      "title": "2025 · 07 FOOTPRINT",
+      "subtitle": "1 处足迹 · 1 帧底片",
+      "summary": "1 处足迹，1 张底片，1 张定位于经纬之上。",
+      "stops": [
+        {
+          "id": "2025-07-stop-01",
+          "dayKey": "2025-07",
+          "index": 0,
+          "title": "湖北省 · 恩施市",
+          "subtitle": "IMG_6002.jpeg",
+          "type": "transit",
+          "time": "12:14",
+          "startAt": "2025-07-26T04:14:21.761Z",
+          "endAt": "2025-07-26T04:14:21.761Z",
+          "latitude": 30.43095,
+          "longitude": 109.184447,
+          "description": "湖北省 · 恩施市 · 坐标 30.4309, 109.1844，共 1 张照片。",
+          "photos": [
+            {
+              "id": "0018-img_6002",
+              "kind": "image",
+              "fileName": "IMG_6002.jpeg",
+              "src": "/media/full/0018-img_6002.jpg",
+              "thumb": "/media/thumbs/0018-img_6002.jpg",
+              "takenAt": "2025-07-26T04:14:21.761Z",
+              "timestamp": 1753503261761,
+              "latitude": 30.43095,
+              "longitude": 109.184447,
+              "width": 2658,
+              "height": 3998,
+              "dayKey": "2025-07-26",
+              "dayIndex": 7,
+              "placeName": null,
+              "locationSource": "exif",
+              "sourcePath": "raw/photos/IMG_6002.jpeg"
+            }
+          ],
+          "capsule": {
+            "poeticTitle": "碧崖垂玉",
+            "journalNote": "正午十二点，峡谷口阳光白得发烫，瀑布却溅起满脸青苔味的凉水汽。水砸深潭的轰鸣震着胸腔，身旁叶子绿得晃眼。我立在阴凉的岩影里，半截接着飞雨，半截浸着盛夏的寂静。",
+            "mood": "幽谷凉响",
+            "scene": "白练垂落青崖，水雾漫过正午",
+            "colors": [
+              "#5B8C3E",
+              "#6B5E48",
+              "#B8C8D8"
+            ],
+            "tags": [
+              "恩施峡谷",
+              "飞瀑",
+              "水雾沁凉",
+              "轰鸣",
+              "盛夏正午",
+              "绿影"
+            ]
+          }
+        }
+      ],
+      "photoCount": 1,
+      "narrative": {
+        "title": "水雾漫过正午",
+        "story": "七月正午，我逃离城市的滚烫，撞进了一场水雾的拥抱。循着凉响入幽谷，忽见白练自青崖垂落，碎玉飞溅。那一刻，时间被水雾浸得发软，我立在瀑前，任凉气穿透盛夏，将浮躁洗尽。原来最盛大的清凉，都藏在无人问津的深谷里。",
+        "postcard": "亲爱的未来的我，七月正午，我在碧崖下收了一捧水雾的清凉。若你正被暑气围困，请想起青崖垂落的白练。那是我留给你的，最安静的避难所。"
+      }
+    }
+  ],
+  "unplacedPhotos": []
+}
