@@ -1,0 +1,50 @@
+{
+  "name": "footprint-atlas",
+  "version": "0.1.0",
+  "description": "A vintage-styled personal footprint atlas generated from geotagged travel photos.",
+  "license": "MIT",
+  "keywords": [
+    "travel",
+    "photo",
+    "map",
+    "exif",
+    "atlas",
+    "react",
+    "vite"
+  ],
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0",
+    "build": "tsc -b && vite build",
+    "test": "vitest run",
+    "album:build": "node scripts/ingest-photos.mjs",
+    "album:ai": "node scripts/enrich-ai.mjs",
+    "album:full": "node scripts/ingest-photos.mjs && node scripts/enrich-ai.mjs",
+    "album:reset": "rm -rf public/media public/album.json data/media.json data/album.json data/ai-cache.json && mkdir -p public/media/full public/media/thumbs data"
+  },
+  "dependencies": {
+    "@vitejs/plugin-react": "^5.0.4",
+    "busboy": "^1.6.0",
+    "d3-geo": "^3.1.1",
+    "exiftool-vendored": "^33.3.0",
+    "lucide-react": "^0.468.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "sharp": "^0.34.0",
+    "topojson-client": "^3.1.0",
+    "vite": "^6.0.7",
+    "world-atlas": "^2.0.2"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^6.6.3",
+    "@types/busboy": "^1.5.4",
+    "@types/d3-geo": "^3.1.0",
+    "@types/geojson": "^7946.0.16",
+    "@types/node": "^22.10.2",
+    "@types/react": "^19.0.1",
+    "@types/react-dom": "^19.0.2",
+    "@types/topojson-client": "^3.1.5",
+    "typescript": "^5.7.2",
+    "vitest": "^2.1.8"
+  }
+}

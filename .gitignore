@@ -1,0 +1,8 @@
+node_modules/
+dist/
+.DS_Store
+public/media/
+public/album.json
+data/*.json
+raw/photos/*
+!raw/photos/.gitkeep
