@@ -22,14 +22,9 @@
 
 ---
 
-<!-- TODO: replace with a 15s screen recording GIF -->
-<!-- Record: map zoom/pan → click a day → scroll stops → open lightbox → close -->
-<!-- Recommended: 800px wide, <5MB, use gifski or LICEcap -->
-<!--
 <p align="center">
-  <img src="docs/demo.gif" alt="Footprint Atlas demo" width="800" />
+  <a href="https://krrrlww.github.io/Footprint-Atlas/">Live Demo →</a>
 </p>
--->
 
 Drop geotagged travel photos into the project, and Footprint Atlas extracts EXIF metadata (time, GPS) to build an interactive, vintage kraft-paper atlas of everywhere you've been.
 
