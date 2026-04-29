@@ -21,15 +21,13 @@ export function positionStops(album: TravelAlbum): PositionedStop[] {
     return {
       ...stop,
       ...position,
-      globalIndex: index
+      globalIndex: index,
     };
   });
 }
 
 export function getFeaturedStops(day: AlbumDay, count = 4): TimelineStop[] {
-  return [...day.stops]
-    .sort((a, b) => b.photos.length - a.photos.length)
-    .slice(0, count);
+  return [...day.stops].sort((a, b) => b.photos.length - a.photos.length).slice(0, count);
 }
 
 export function formatStopCounter(index: number): string {

@@ -28,23 +28,22 @@ export function MapStage({ album, activeDayId, onSelectDay, onOpenDay, onOpenSto
   const activeStopIds = new Set(activeDay?.stops.map((stop) => stop.id) ?? []);
   const positionedStops = realMap.stops.map((stop) => ({
     ...stop,
-    ...toViewportPercent(stop, viewport, realMap.width, realMap.height)
+    ...toViewportPercent(stop, viewport, realMap.width, realMap.height),
   }));
   const visibleStops = positionedStops.filter((stop) => isVisibleInViewport(stop.x, stop.y));
   const displayPins = clusterStops(visibleStops, clusterRadius(viewport.zoom));
-  const labelStops = positionedStops
-    .filter((stop) => isVisibleInViewport(stop.x, stop.y))
-    .filter((_, index) => index % 2 === 0)
-    .filter(() => viewport.zoom < 2.2)
-    .slice(0, 6);
   const viewBox = getViewBox(viewport, realMap.width, realMap.height);
 
   useEffect(() => {
+    // Reset viewport when album data changes (new photos ingested)
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setViewport(createViewport(realMap.width, realMap.height, 1));
   }, [album.generatedAt, realMap.width, realMap.height]);
 
   const setZoom = (nextZoom: number) => {
-    setViewport((current) => constrainViewport({ ...current, zoom: clampZoom(nextZoom) }, realMap.width, realMap.height));
+    setViewport((current) =>
+      constrainViewport({ ...current, zoom: clampZoom(nextZoom) }, realMap.width, realMap.height)
+    );
   };
 
   const focusActivePeriod = () => {
@@ -64,7 +63,7 @@ export function MapStage({ album, activeDayId, onSelectDay, onOpenDay, onOpenSto
       focusStops(pin.stops, realMap.width, realMap.height, {
         paddingX: 120,
         paddingY: 100,
-        minZoom: viewport.zoom * 2.1
+        minZoom: viewport.zoom * 2.1,
       })
     );
   };
@@ -78,7 +77,7 @@ export function MapStage({ album, activeDayId, onSelectDay, onOpenDay, onOpenSto
         {
           ...baseViewport,
           centerX: baseViewport.centerX - (deltaX / rectWidth) * viewWidth,
-          centerY: baseViewport.centerY - (deltaY / rectHeight) * viewHeight
+          centerY: baseViewport.centerY - (deltaY / rectHeight) * viewHeight,
         },
         realMap.width,
         realMap.height
@@ -98,7 +97,7 @@ export function MapStage({ album, activeDayId, onSelectDay, onOpenDay, onOpenSto
           startY: event.clientY,
           rectWidth: rect.width,
           rectHeight: rect.height,
-          viewport
+          viewport,
         };
         setIsDragging(true);
         event.currentTarget.setPointerCapture(event.pointerId);
@@ -128,12 +127,7 @@ export function MapStage({ album, activeDayId, onSelectDay, onOpenDay, onOpenSto
       }}
     >
       <div className="map-stage__texture" />
-      <svg
-        className="geo-map"
-        viewBox={viewBox}
-        preserveAspectRatio="none"
-        aria-hidden="true"
-      >
+      <svg className="geo-map" viewBox={viewBox} preserveAspectRatio="none" aria-hidden="true">
         <path className="geo-graticule" d={realMap.graticulePath} />
         <path className="geo-land" d={realMap.landPath} />
         <path className="geo-borders" d={realMap.borderPath} />
@@ -141,17 +135,37 @@ export function MapStage({ album, activeDayId, onSelectDay, onOpenDay, onOpenSto
       </svg>
 
       <div className="map-compass" aria-hidden="true">
-        <span>N</span>
-        <i />
+        <svg viewBox="0 0 60 60" width="60" height="60">
+          <circle cx="30" cy="30" r="28" fill="none" stroke="currentColor" strokeWidth="0.5" opacity="0.3" />
+          <circle cx="30" cy="30" r="22" fill="none" stroke="currentColor" strokeWidth="0.3" opacity="0.2" />
+          <polygon points="30,4 33,26 30,24 27,26" fill="hsl(4 42% 39%)" />
+          <polygon points="30,56 33,34 30,36 27,34" fill="currentColor" opacity="0.35" />
+          <polygon points="4,30 26,27 24,30 26,33" fill="currentColor" opacity="0.25" />
+          <polygon points="56,30 34,27 36,30 34,33" fill="currentColor" opacity="0.25" />
+          <text x="30" y="3" textAnchor="middle" fontSize="7" fontWeight="600" fill="hsl(4 42% 39%)">
+            N
+          </text>
+          <text x="30" y="60" textAnchor="middle" fontSize="6" fill="currentColor" opacity="0.4">
+            S
+          </text>
+          <text x="2" y="32" textAnchor="middle" fontSize="6" fill="currentColor" opacity="0.4">
+            W
+          </text>
+          <text x="58" y="32" textAnchor="middle" fontSize="6" fill="currentColor" opacity="0.4">
+            E
+          </text>
+          <circle cx="30" cy="30" r="2.5" fill="hsl(4 42% 39%)" />
+          <circle cx="30" cy="30" r="1" fill="hsl(40 100% 95%)" />
+        </svg>
       </div>
 
       <div className="map-scale" aria-hidden="true">
         <span />
-        archive scale
+        scale
       </div>
 
       <div className="map-title-block">
-        <em>{album.dateRange || "photo archive"}</em>
+        <em>{album.dateRange || ""}</em>
       </div>
 
       <div className="map-zoom-controls" aria-label="Map zoom controls">
@@ -164,13 +178,15 @@ export function MapStage({ album, activeDayId, onSelectDay, onOpenDay, onOpenSto
         <button type="button" onClick={focusActivePeriod} title="聚焦当前时期">
           <LocateFixed size={15} />
         </button>
-        <button type="button" onClick={() => setViewport(createViewport(realMap.width, realMap.height, 1))} title="重置视图">
+        <button
+          type="button"
+          onClick={() => setViewport(createViewport(realMap.width, realMap.height, 1))}
+          title="重置视图"
+        >
           <RotateCcw size={15} />
         </button>
         <span>{viewport.zoom.toFixed(1)}x</span>
       </div>
-
-
 
       {displayPins.map((pin) => (
         <PhotoPin
@@ -180,7 +196,6 @@ export function MapStage({ album, activeDayId, onSelectDay, onOpenDay, onOpenSto
           onOpen={() => openPin(pin)}
         />
       ))}
-
 
       <div className="map-day-strip">
         {album.days.map((day, index) => (
@@ -211,7 +226,7 @@ function createViewport(width: number, height: number, zoom: number): Viewport {
   return {
     zoom,
     centerX: width / 2,
-    centerY: height / 2
+    centerY: height / 2,
   };
 }
 
@@ -234,7 +249,7 @@ function toViewportPercent(stop: RealMapStop, viewport: Viewport, width: number,
 
   return {
     x: ((stop.screenX - left) / viewWidth) * 100,
-    y: ((stop.screenY - top) / viewHeight) * 100
+    y: ((stop.screenY - top) / viewHeight) * 100,
   };
 }
 
@@ -249,13 +264,13 @@ function focusStops(
       minX: Math.min(result.minX, stop.screenX),
       maxX: Math.max(result.maxX, stop.screenX),
       minY: Math.min(result.minY, stop.screenY),
-      maxY: Math.max(result.maxY, stop.screenY)
+      maxY: Math.max(result.maxY, stop.screenY),
     }),
     {
       minX: stops[0].screenX,
       maxX: stops[0].screenX,
       minY: stops[0].screenY,
-      maxY: stops[0].screenY
+      maxY: stops[0].screenY,
     }
   );
   const paddingX = options.paddingX ?? 260;
@@ -268,7 +283,7 @@ function focusStops(
     {
       zoom,
       centerX: (bounds.minX + bounds.maxX) / 2,
-      centerY: (bounds.minY + bounds.maxY) / 2
+      centerY: (bounds.minY + bounds.maxY) / 2,
     },
     width,
     height
@@ -283,7 +298,7 @@ function constrainViewport(viewport: Viewport, width: number, height: number): V
   return {
     zoom,
     centerX: clamp(viewport.centerX, viewWidth / 2, width - viewWidth / 2),
-    centerY: clamp(viewport.centerY, viewHeight / 2, height - viewHeight / 2)
+    centerY: clamp(viewport.centerY, viewHeight / 2, height - viewHeight / 2),
   };
 }
 
@@ -313,7 +328,14 @@ function PhotoPin({ pin, isMuted, onOpen }: PhotoPinProps) {
   return (
     <button
       className={`photo-pin ${pin.stops.length > 1 ? "is-cluster" : ""} ${isMuted ? "is-muted" : ""}`}
-      style={{ left: `${pin.x}%`, top: `${pin.y}%`, "--pin-rotation": `${rotation}deg` } as CSSProperties}
+      style={
+        {
+          left: `${pin.x}%`,
+          top: `${pin.y}%`,
+          "--pin-rotation": `${rotation}deg`,
+          animationDelay: `${pin.globalIndex * 0.04}s`,
+        } as CSSProperties
+      }
       onClick={onOpen}
       aria-label={pin.stops.length > 1 ? `Zoom into ${pin.stops.length} places` : `Open ${pin.stops[0].title}`}
     >
@@ -375,7 +397,7 @@ function clusterStops(stops: ViewStop[], radius: number): DisplayPin[] {
         usedGps: stop.usedGps,
         globalIndex: stop.globalIndex,
         stops: [stop],
-        photos: stop.photos
+        photos: stop.photos,
       });
       continue;
     }

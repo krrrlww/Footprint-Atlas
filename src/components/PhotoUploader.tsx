@@ -25,13 +25,12 @@ export function PhotoUploader({ onClose, onUploaded }: PhotoUploaderProps) {
     return () => document.removeEventListener("keydown", onKeyDown);
   }, [onClose]);
 
-  const totalSize = useMemo(
-    () => files.reduce((sum, file) => sum + file.size, 0),
-    [files]
-  );
+  const totalSize = useMemo(() => files.reduce((sum, file) => sum + file.size, 0), [files]);
 
   const addFiles = (nextFiles: FileList | File[]) => {
-    const images = Array.from(nextFiles).filter((file) => file.type.startsWith("image/") || /\.(heic|heif|tiff?)$/i.test(file.name));
+    const images = Array.from(nextFiles).filter(
+      (file) => file.type.startsWith("image/") || /\.(heic|heif|tiff?)$/i.test(file.name)
+    );
     setFiles((current) => mergeFiles(current, images));
     setMessage(images.length === 0 ? "没有识别到支持的图片文件。" : "");
   };
@@ -50,9 +49,13 @@ export function PhotoUploader({ onClose, onUploaded }: PhotoUploaderProps) {
     try {
       const response = await fetch("/api/upload-photos", {
         method: "POST",
-        body: formData
+        body: formData,
       });
-      const payload = (await response.json()) as { album?: TravelAlbum; uploaded?: Array<{ fileName: string }>; error?: string };
+      const payload = (await response.json()) as {
+        album?: TravelAlbum;
+        uploaded?: Array<{ fileName: string }>;
+        error?: string;
+      };
       if (!response.ok || !payload.album) throw new Error(payload.error || "上传失败");
 
       onUploaded(payload.album);

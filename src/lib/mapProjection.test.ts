@@ -16,7 +16,7 @@ const stops: TimelineStop[] = [
     latitude: 37.3,
     longitude: 101.4,
     description: "",
-    photos: []
+    photos: [],
   },
   {
     id: "guangxi",
@@ -31,7 +31,7 @@ const stops: TimelineStop[] = [
     latitude: 24.7,
     longitude: 110.4,
     description: "",
-    photos: []
+    photos: [],
   },
   {
     id: "missing",
@@ -46,8 +46,8 @@ const stops: TimelineStop[] = [
     latitude: null,
     longitude: null,
     description: "",
-    photos: []
-  }
+    photos: [],
+  },
 ];
 
 describe("real map projection", () => {

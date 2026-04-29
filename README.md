@@ -1,197 +1,162 @@
-# Footprint Atlas
+<h1 align="center">
+  Footprint Atlas
+</h1>
 
-Footprint Atlas 是一个个人足迹地图生成器：把带有 EXIF 信息的旅行照片放进项目，它会自动提取拍摄时间和 GPS，把你这些年去过的地方整理成一张复古手账风格的互动地图。
+<p align="center">
+  <strong>A vintage-styled personal footprint map, generated from your geotagged photos.</strong>
+</p>
 
-它不是“单次旅行路线”工具，而是一个持续生长的「去过的地方」档案。适合用来整理手机相册、旅行照片、城市漫游记录，以及那些散落在硬盘里的记忆碎片。
+<p align="center">
+  <a href="#quick-start">Quick Start</a> ·
+  <a href="#features">Features</a> ·
+  <a href="#ai-enrichment">AI Enrichment</a> ·
+  <a href="#deploy">Deploy</a> ·
+  <a href="#contributing">Contributing</a>
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/github/license/krrrlww/Footprint-Atlas" alt="MIT License" />
+  <img src="https://img.shields.io/badge/node-%3E%3D20-brightgreen" alt="Node >= 20" />
+  <img src="https://img.shields.io/badge/react-19-blue" alt="React 19" />
+</p>
+
+---
+
+<!-- TODO: replace with a 15s screen recording GIF -->
+<!-- Record: map zoom/pan → click a day → scroll stops → open lightbox → close -->
+<!-- Recommended: 800px wide, <5MB, use gifski or LICEcap -->
+<!--
+<p align="center">
+  <img src="docs/demo.gif" alt="Footprint Atlas demo" width="800" />
+</p>
+-->
+
+Drop geotagged travel photos into the project, and Footprint Atlas extracts EXIF metadata (time, GPS) to build an interactive, vintage kraft-paper atlas of everywhere you've been.
+
+It's not a single-trip route planner — it's a growing archive of all the places you've visited. Perfect for organizing years of phone albums, travel photos, and scattered memories.
+
+把带有 EXIF 信息的旅行照片放入项目，Footprint Atlas 会自动提取拍摄时间和 GPS 坐标，生成一张复古手账风格的互动足迹地图。适合整理手机相册、旅行照片和散落在硬盘里的记忆碎片。
 
 ## Features
 
-- 从照片 EXIF 中提取拍摄时间、GPS、尺寸等元数据
-- 按月份、时间间隔和地理距离自动聚合足迹点
-- 使用真实世界地图数据和 `d3-geo` 投影足迹坐标
-- 生成复古牛皮纸地图、红色时间虚线、照片图钉和胶片式详情页
-- 未获取到 GPS 的照片默认不显示在地图上，可在页面里补地点和拍摄时间
-- 地点可自动转经纬度，也支持手动输入坐标
-- 支持在本地页面中手动上传照片，上传后自动重新生成地图
-- 生成静态前端资源，适合部署到 GitHub Pages、Vercel 或 Cloudflare Pages
-
-## Preview
-
-当前界面风格参考旅行手账和复古地图：
-
-- 牛皮纸与细点纹理
-- 真实地图轮廓的手账化渲染
-- 红色虚线表示照片时间顺序
-- 照片图钉堆叠显示足迹点
-- 地图支持放大、缩小、拖拽平移、重置，以及聚焦当前时期
-- 密集点位会自动聚合成足迹簇，点击足迹簇会继续放大聚焦
-- 桌面端采用全屏应用式布局，地图和归档面板会填满剩余窗口空间
-- 窄屏设备会切换为上下布局，页面自然滚动
-- 右侧按时期归档
-- 点击足迹点打开纸张式 Archive Log
-- 照片以黑色胶片条展示
+- **EXIF Extraction** — reads shooting time, GPS coordinates, and dimensions from photos
+- **Auto Clustering** — groups photos into periods (by month) and footprint stops (by time gaps >6h or distance >12km)
+- **Real Map Projection** — renders footprint coordinates on actual world geography via `d3-geo` Mercator projection
+- **Vintage Atlas Theme** — kraft-paper texture, hand-journal typography, film-strip photo viewers, wax-seal accents
+- **Photo Lightbox** — click any photo for full-viewport viewing with keyboard navigation
+- **AI Memory Capsules** — optional vision-model enrichment generates poetic titles, first-person journal notes, mood tags, and color palettes for each stop
+- **Unplaced Photo Editor** — geocode search + manual coordinate input for photos without GPS
+- **In-Browser Upload** — drag-and-drop photos in dev mode, auto-rebuilds the atlas
+- **Static Deployable** — builds to pure static HTML/CSS/JS, ready for GitHub Pages, Vercel, or Cloudflare Pages
+- **Local-First Privacy** — all data stays on your machine; no mandatory external services
 
 ## Quick Start
 
-安装依赖：
-
 ```bash
+# Clone and install
+git clone https://github.com/krrrlww/Footprint-Atlas.git
+cd Footprint-Atlas
 npm install
-```
 
-把照片放入：
+# Add your photos
+# Put geotagged JPG/PNG/WebP/HEIC files into raw/photos/
 
-```text
-raw/photos/
-```
-
-也可以启动开发服务后，在页面里点击「上传照片」选择或拖入图片。网页上传会把图片保存到 `raw/photos/` 并自动刷新足迹数据。
-
-生成足迹数据：
-
-```bash
+# Generate atlas data
 npm run album:build
-```
 
-启动本地开发服务：
-
-```bash
+# Start dev server
 npm run dev
+# → http://localhost:5173
 ```
 
-打开：
-
-```text
-http://localhost:5173/
-```
+Or upload photos directly from the browser after starting the dev server.
 
 ## Scripts
 
+| Command | Description |
+|---------|-------------|
+| `npm run dev` | Start Vite dev server (includes local API for editing) |
+| `npm run build` | Production build → `dist/` |
+| `npm test` | Run unit tests |
+| `npm run album:build` | Process `raw/photos/` → generate atlas JSON + optimized images |
+| `npm run album:ai` | AI enrichment: generate Memory Capsules + Period Narratives |
+| `npm run album:full` | `album:build` + `album:ai` in sequence |
+| `npm run album:reset` | Wipe generated data (keeps original photos) |
+
+## AI Enrichment
+
+Footprint Atlas can optionally use a vision model to analyze your photos and generate rich contextual content for each footprint stop:
+
+- **Memory Capsule** — poetic title, first-person journal note, mood descriptor, scene sketch, color palette, tags
+- **Period Narrative** — story arc connecting all stops, postcard to your future self
+
 ```bash
-npm run album:build
+# Using DeepSeek (default)
+AI_API_KEY=sk-xxx npm run album:ai
+
+# Using a custom vision model
+AI_API_KEY=sk-xxx AI_VISION_MODEL=gpt-4o AI_VISION_BASE_URL=https://api.openai.com/v1 npm run album:ai
 ```
 
-读取 `raw/photos/`，生成 `data/album.json`、`data/media.json` 和 `public/album.json`。
+See [`.env.example`](.env.example) for all configuration options. AI enrichment is cached in `data/ai-cache.json` — re-running only processes new stops.
 
-```bash
-npm run dev
+You can also configure AI settings from the web UI by clicking the "AI 记忆解析" button.
+
+## Data Model
+
+```
+TravelAlbum
+  └─ AlbumDay (period — typically a month)
+       └─ TimelineStop (footprint cluster)
+            └─ MediaItem (photo)
 ```
 
-启动 Vite 开发服务。开发模式下会额外提供本地 API，用于保存手动补充的地点和时间。
+Clustering rules:
+- Same month, >6h time gap → new stop
+- GPS distance >12km → new stop
+- Large groups split further by time intervals
+
+## Deploy
+
+### GitHub Pages
+
+Enable GitHub Pages in your repo settings (Settings → Pages → Source: GitHub Actions). The included workflow at `.github/workflows/deploy.yml` will build and deploy on every push to `main`.
+
+Before deploying, make sure `public/album.json` and `public/media/` are committed or generated in CI. For privacy, review that no unwanted photos or coordinates are included.
+
+### Other Platforms
 
 ```bash
 npm run build
-```
-
-构建可部署的静态网页到 `dist/`。
-
-```bash
-npm run test
-```
-
-运行单元测试。
-
-```bash
-npm run album:reset
-```
-
-清空已生成的相册数据和媒体文件，不会删除 `raw/photos/` 里的原始照片。
-
-## How It Works
-
-数据会被整理成以下层级：
-
-```text
-Atlas
-  Period
-    Footprint Stop
-      Photo
-```
-
-`Period` 表示一个月份或时期，`Footprint Stop` 表示该时期内相近时间或相近地点的一组照片。
-
-当前聚合规则：
-
-- 同一月份内超过约 6 小时会拆成新足迹点
-- GPS 距离超过约 12 km 会拆成新足迹点
-- 同一组照片过多时，会根据时间间隔继续拆分
-
-地图上的红色虚线表示照片的时间顺序，不表示一次连续旅行。
-
-## Fix Missing Locations
-
-没有 GPS 的照片不会显示在地图和归档中，而是进入「补充未定位照片」工作台。
-
-在工作台里可以：
-
-- 输入地点并搜索
-- 选择搜索结果后自动填入经纬度
-- 手动输入经纬度作为兜底
-- 修改或补充拍摄时间
-- 保存到 `data/manual-overrides.json`
-- 自动重新生成 `public/album.json`
-
-地点搜索优先使用内置地点库和 Open-Meteo 地理编码服务。网络不可用或搜索不到时，可以直接填写坐标。
-
-## Upload Photos From The UI
-
-开发模式下可以在页面中点击「上传照片」：
-
-- 支持多选和拖拽
-- 支持 JPG、PNG、WebP、HEIC、HEIF、TIFF
-- 上传后保存到 `raw/photos/`
-- 上传成功后自动运行数据生成脚本
-- 前端会立即使用新的 `album.json`
-
-这个模块依赖 Vite 本地开发服务提供的 `/api/upload-photos` 接口。构建后的纯静态站点不能直接写入本地文件，因此静态部署版本不包含真正的上传后端。
-
-## Project Structure
-
-```text
-footprint-atlas/
-  raw/photos/              Original photos
-  data/                    Generated JSON and manual overrides
-  public/album.json        Atlas data consumed by the frontend
-  public/media/            Optimized images and thumbnails
-  scripts/ingest-photos.mjs
-  src/
-    components/            Map, pins, archive modal, missing-location editor
-    lib/                   Geo helpers, map projection, album helpers
-    styles/app.css         Vintage atlas styling
-    types/album.ts         Shared data types
+# Upload the dist/ directory to Vercel, Cloudflare Pages, Netlify, or any static host
 ```
 
 ## Privacy
 
-Footprint Atlas is designed as a local-first project.
+Footprint Atlas is local-first by design:
 
-- 原始照片保存在本地 `raw/photos/`
-- 生成后的网页图片会写入 `public/media/`
-- EXIF 信息会整理到本地 JSON 文件
-- 手动补充的地点和时间保存在 `data/manual-overrides.json`
-- 地点搜索会调用在线地理编码服务；不想联网时可以手动输入经纬度
+- Original photos stay in `raw/photos/` (git-ignored)
+- Generated images go to `public/media/` (git-ignored)
+- EXIF data is organized into local JSON files
+- Location search uses Open-Meteo geocoding; manual coordinate input works offline
+- AI enrichment is optional and build-time only — the frontend makes zero external API calls
 
-部署前建议检查 `public/media/` 和 `public/album.json`，确认没有不想公开的照片或坐标。
+Review `public/media/` and `public/album.json` before any public deployment.
 
 ## Tech Stack
 
-- React
-- Vite
-- TypeScript
-- `exiftool-vendored`
-- `sharp`
-- `d3-geo`
-- `world-atlas`
-- `topojson-client`
+| Layer | Technology |
+|-------|-----------|
+| Frontend | React 19, TypeScript, Vite |
+| Map | `d3-geo`, `world-atlas`, `topojson-client` |
+| Photos | `exiftool-vendored`, `sharp` |
+| Icons | `lucide-react` |
+| AI | Any OpenAI-compatible API (optional, build-time only) |
 
-## Roadmap
+## Contributing
 
-- 支持多种地图主题
-- 支持手动合并和拆分足迹点
-- 支持导出隐私模式，模糊精确坐标
-- 支持接入视觉模型，为足迹点自动生成标题和描述
-- 支持 GitHub Pages 部署脚本
+See [CONTRIBUTING.md](CONTRIBUTING.md) for development setup and guidelines.
 
 ## License
 
-MIT
+[MIT](LICENSE)

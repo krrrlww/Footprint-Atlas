@@ -1,7 +1,27 @@
 :root {
-  color: #2b241b;
-  background: #9a8d73;
-  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  /* — Color Tokens (HSL base) — */
+  --kraft: 37 16% 52%;
+  --paper: 42 39% 82%;
+  --paper-warm: 42 36% 85%;
+  --paper-light: 43 50% 90%;
+  --ink: 33 27% 14%;
+  --ink-brown: 30 22% 20%;
+  --seal: 4 42% 39%;
+  --seal-bright: 6 54% 47%;
+  --moss: 83 31% 33%;
+  --cream: 40 100% 95%;
+  --gold: 43 44% 64%;
+  --film: 20 23% 8%;
+
+  /* — Font Stacks — */
+  --font-display: "Playfair Display", Georgia, "Times New Roman", serif;
+  --font-body: "Crimson Pro", Georgia, serif;
+  --font-mono: "IBM Plex Mono", "Courier New", monospace;
+  --font-decorative: "Cormorant Garamond", Georgia, serif;
+
+  color: hsl(var(--ink));
+  background: hsl(var(--kraft));
+  font-family: var(--font-body);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -14,7 +34,7 @@
 html {
   min-width: 320px;
   height: 100%;
-  background: #9a8d73;
+  background: hsl(var(--kraft));
 }
 
 body {
@@ -25,8 +45,7 @@ body {
   overflow: hidden;
   background:
     linear-gradient(rgba(66, 52, 35, 0.12), rgba(66, 52, 35, 0.12)),
-    radial-gradient(circle at 30% 20%, rgba(246, 226, 173, 0.32), transparent 32rem),
-    #9a8d73;
+    radial-gradient(circle at 30% 20%, rgba(246, 226, 173, 0.32), transparent 32rem), #9a8d73;
 }
 
 #root {
@@ -71,17 +90,19 @@ button {
 .hero-micro {
   grid-area: micro;
   margin: 0;
-  font-family: "Courier New", monospace;
-  font-size: 10px;
-  letter-spacing: 1.4px;
+  font-family: var(--font-decorative);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 2px;
   text-transform: uppercase;
-  color: rgba(71, 53, 34, 0.62);
+  font-variant: small-caps;
+  color: hsl(var(--ink-brown) / 0.58);
 }
 
 .album-hero h1 {
   grid-area: title;
   margin: 0;
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--font-display);
   font-size: clamp(28px, 3vw, 42px);
   font-weight: 500;
   letter-spacing: 0;
@@ -114,7 +135,7 @@ button {
   color: #4a3927;
   border: 1px solid rgba(73, 53, 34, 0.22);
   background: rgba(247, 237, 204, 0.52);
-  font-family: "Courier New", monospace;
+  font-family: var(--font-mono);
   font-size: 12px;
 }
 
@@ -138,15 +159,26 @@ button {
   border: 1px solid rgba(73, 39, 32, 0.46);
   background: #8e3f39;
   box-shadow: 0 4px 10px rgba(59, 44, 28, 0.18);
-  font-family: "Courier New", monospace;
+  font-family: var(--font-mono);
   font-size: 11px;
   letter-spacing: 1px;
   text-transform: uppercase;
   cursor: pointer;
 }
 
+.missing-editor-button {
+  transition: all 0.2s ease;
+}
+
 .missing-editor-button:hover {
   background: #78342f;
+  box-shadow: 0 6px 20px hsl(var(--seal) / 0.3);
+  transform: translateY(-1px);
+}
+
+.missing-editor-button:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 6px hsl(var(--seal) / 0.2);
 }
 
 .journal-frame {
@@ -178,6 +210,20 @@ button {
 
 .map-stage.is-dragging {
   cursor: grabbing;
+}
+
+.map-stage::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse 72% 68% at 50% 48%,
+    transparent 38%,
+    hsl(var(--ink) / 0.05) 68%,
+    hsl(var(--ink) / 0.16) 100%
+  );
 }
 
 .map-stage__texture {
@@ -225,12 +271,12 @@ button {
 
 .geo-route {
   fill: none;
-  stroke: #b65345;
-  stroke-width: 3.4;
+  stroke: hsl(var(--seal-bright));
+  stroke-width: 2.8;
   stroke-linecap: round;
   stroke-linejoin: round;
-  stroke-dasharray: 12 12;
-  filter: drop-shadow(0 1px 0 rgba(248, 237, 199, 0.68));
+  stroke-dasharray: 2 6 14 6;
+  filter: drop-shadow(1px 1px 0 hsl(var(--cream) / 0.7));
   vector-effect: non-scaling-stroke;
 }
 
@@ -247,14 +293,14 @@ button {
 
 .map-title-block span,
 .map-title-block em {
-  font-family: "Courier New", monospace;
+  font-family: var(--font-mono);
   font-size: 10px;
   font-style: normal;
   letter-spacing: 1.2px;
 }
 
 .map-title-block strong {
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--font-display);
   font-size: 30px;
   font-weight: 500;
   letter-spacing: 0;
@@ -296,7 +342,7 @@ button {
 .map-zoom-controls span {
   min-width: 38px;
   color: rgba(52, 40, 27, 0.78);
-  font-family: "Courier New", monospace;
+  font-family: var(--font-mono);
   font-size: 11px;
   text-align: center;
 }
@@ -304,25 +350,18 @@ button {
 .map-compass {
   position: absolute;
   z-index: 6;
-  top: 28px;
-  right: 32px;
-  width: 48px;
-  height: 64px;
-  color: rgba(60, 46, 31, 0.72);
-  text-align: center;
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 12px;
+  top: 22px;
+  right: 26px;
+  width: 60px;
+  height: 60px;
+  color: hsl(var(--ink) / 0.6);
+  font-family: var(--font-display);
+  filter: drop-shadow(0 1px 2px hsl(var(--ink) / 0.15));
+  animation: fadeIn 0.6s ease-out 0.5s both;
 }
 
-.map-compass i {
-  display: block;
-  width: 0;
-  height: 0;
-  margin: 8px auto 0;
-  border-right: 8px solid transparent;
-  border-bottom: 32px solid #9b3f3a;
-  border-left: 8px solid transparent;
-  filter: drop-shadow(0 1px 0 rgba(255, 243, 206, 0.7));
+.map-compass svg text {
+  font-family: var(--font-display);
 }
 
 .map-scale {
@@ -331,7 +370,7 @@ button {
   bottom: 30px;
   left: 30px;
   color: rgba(50, 39, 27, 0.65);
-  font-family: "Courier New", monospace;
+  font-family: var(--font-mono);
   font-size: 10px;
 }
 
@@ -349,7 +388,7 @@ button {
   position: absolute;
   z-index: 4;
   color: rgba(67, 49, 32, 0.38);
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--font-display);
   font-size: 16px;
   letter-spacing: 0;
   text-transform: uppercase;
@@ -363,7 +402,7 @@ button {
   right: 12%;
   bottom: 44px;
   color: rgba(69, 54, 35, 0.42);
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--font-display);
   font-size: 22px;
   font-style: italic;
   letter-spacing: 6px;
@@ -381,14 +420,18 @@ button {
   cursor: pointer;
   transform: translate(-50%, -50%) rotate(var(--pin-rotation));
   transform-origin: 50% 78%;
-  transition: transform 180ms ease, opacity 180ms ease, filter 180ms ease;
+  transition:
+    transform 180ms ease,
+    opacity 180ms ease,
+    filter 180ms ease;
 }
 
 .photo-pin:hover,
 .photo-pin:focus-visible {
   z-index: 14;
-  transform: translate(-50%, -54%) rotate(0deg) scale(1.18);
+  transform: translate(-50%, -60%) rotate(0deg) scale(1.22);
   outline: none;
+  filter: drop-shadow(0 8px 16px hsl(var(--ink) / 0.22));
 }
 
 .photo-pin.is-muted {
@@ -460,7 +503,7 @@ button {
   border: 2px solid #f6ead0;
   border-radius: 999px;
   background: #b93e35;
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--font-display);
   font-size: 14px;
   font-weight: 700;
   box-shadow: 0 4px 9px rgba(39, 29, 21, 0.22);
@@ -486,7 +529,7 @@ button {
   color: #fff7e5;
   border: 1px solid rgba(246, 234, 208, 0.72);
   background: rgba(83, 62, 39, 0.88);
-  font-family: "Courier New", monospace;
+  font-family: var(--font-mono);
   font-size: 8px;
   letter-spacing: 0.7px;
   text-transform: uppercase;
@@ -526,7 +569,7 @@ button {
   color: rgba(54, 42, 29, 0.78);
   border: 1px solid rgba(58, 43, 28, 0.22);
   background: rgba(244, 235, 205, 0.74);
-  font-family: "Courier New", monospace;
+  font-family: var(--font-mono);
   font-size: 11px;
   cursor: pointer;
 }
@@ -560,7 +603,7 @@ button {
 .panel-heading span {
   display: block;
   margin-bottom: 5px;
-  font-family: "Courier New", monospace;
+  font-family: var(--font-mono);
   font-size: 10px;
   letter-spacing: 1.6px;
   text-transform: uppercase;
@@ -568,7 +611,7 @@ button {
 }
 
 .panel-heading strong {
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--font-display);
   font-size: 23px;
   font-weight: 500;
 }
@@ -581,22 +624,46 @@ button {
 
 .day-ticket {
   display: grid;
+  grid-template-columns: 44px 1fr;
+  grid-template-rows: auto auto auto auto;
   width: 100%;
-  gap: 5px;
+  gap: 3px 10px;
   margin-bottom: 9px;
   padding: 13px 12px;
   color: #3c2f20;
   text-align: left;
   border: 1px solid transparent;
+  border-left: 3px solid transparent;
   border-bottom: 1px dashed rgba(71, 53, 34, 0.2);
   background: transparent;
   cursor: pointer;
+  transition: all 0.25s ease;
 }
 
-.day-ticket:hover,
+.day-ticket__thumb {
+  grid-row: 1 / -1;
+  width: 44px;
+  height: 44px;
+  object-fit: cover;
+  border: 2px solid hsl(var(--paper));
+  border-radius: 2px;
+  box-shadow: 0 1px 3px hsl(var(--ink) / 0.15);
+}
+
+.day-ticket:hover {
+  border-left-color: hsl(var(--seal) / 0.6);
+  border-color: rgba(111, 53, 44, 0.28);
+  border-left-color: hsl(var(--seal) / 0.6);
+  background: rgba(252, 243, 216, 0.56);
+  transform: translateX(2px);
+  box-shadow: 4px 4px 0 hsl(var(--gold) / 0.25);
+}
+
 .day-ticket.is-active {
   border-color: rgba(111, 53, 44, 0.28);
+  border-left-color: hsl(var(--seal));
   background: rgba(252, 243, 216, 0.56);
+  box-shadow: 4px 4px 0 hsl(var(--gold) / 0.25);
 }
 
 .day-ticket__index,
@@ -605,14 +672,14 @@ button {
   align-items: center;
   gap: 5px;
   color: #8e3f39;
-  font-family: "Courier New", monospace;
+  font-family: var(--font-mono);
   font-size: 10px;
   letter-spacing: 1.5px;
   text-transform: uppercase;
 }
 
 .day-ticket__title {
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--font-display);
   font-size: 20px;
   line-height: 1.1;
 }
@@ -629,7 +696,7 @@ button {
   color: #fff8e8;
   border: 1px solid rgba(75, 39, 32, 0.44);
   background: #8e3f39;
-  font-family: "Courier New", monospace;
+  font-family: var(--font-mono);
   font-size: 11px;
   letter-spacing: 1.4px;
   text-transform: uppercase;
@@ -652,7 +719,7 @@ button {
 
 .empty-note strong {
   color: #8e3f39;
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--font-display);
 }
 
 .modal-backdrop {
@@ -714,7 +781,7 @@ button {
   padding: 4px 7px;
   color: #9a443b;
   background: rgba(153, 66, 55, 0.09);
-  font-family: "Courier New", monospace;
+  font-family: var(--font-mono);
   font-size: 11px;
   letter-spacing: 1.4px;
 }
@@ -722,7 +789,7 @@ button {
 .unplaced-paper__header h2,
 .upload-paper__header h2 {
   margin: 0 0 8px;
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--font-display);
   font-size: 38px;
   font-weight: 500;
   letter-spacing: 0;
@@ -757,7 +824,7 @@ button {
 }
 
 .upload-dropzone strong {
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--font-display);
   font-size: 24px;
   font-weight: 500;
 }
@@ -784,7 +851,7 @@ button {
   gap: 12px;
   min-height: 28px;
   color: #3a2b1d;
-  font-family: "Courier New", monospace;
+  font-family: var(--font-mono);
   font-size: 11px;
 }
 
@@ -842,7 +909,7 @@ button {
 
 .unplaced-card__title {
   color: #382a1c;
-  font-family: "Courier New", monospace;
+  font-family: var(--font-mono);
   font-size: 12px;
   font-weight: 700;
 }
@@ -854,7 +921,7 @@ button {
 
 .unplaced-card label > span {
   color: #8e3f39;
-  font-family: "Courier New", monospace;
+  font-family: var(--font-mono);
   font-size: 10px;
   letter-spacing: 1.2px;
   text-transform: uppercase;
@@ -931,7 +998,7 @@ button {
   align-items: center;
   gap: 7px;
   color: #5c6f3b;
-  font-family: "Courier New", monospace;
+  font-family: var(--font-mono);
   font-size: 11px;
 }
 
@@ -964,7 +1031,7 @@ button {
   flex: 0 0 auto;
   min-height: 40px;
   padding: 9px 14px;
-  font-family: "Courier New", monospace;
+  font-family: var(--font-mono);
   font-size: 11px;
   letter-spacing: 1px;
   text-transform: uppercase;
@@ -981,6 +1048,211 @@ button {
   }
 }
 
+/* — Entrance Animations — */
+
+@keyframes fadeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleReveal {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes backdropIn {
+  from {
+    opacity: 0;
+    backdrop-filter: blur(0);
+  }
+  to {
+    opacity: 1;
+    backdrop-filter: blur(4px);
+  }
+}
+
+@keyframes paperSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(24px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes pinDrop {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -80%) rotate(var(--pin-rotation)) scale(0.5);
+  }
+  60% {
+    opacity: 1;
+    transform: translate(-50%, -46%) rotate(var(--pin-rotation)) scale(1.06);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%) rotate(var(--pin-rotation)) scale(1);
+  }
+}
+
+@keyframes drawRoute {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Page load staggered reveals */
+.album-hero {
+  animation: fadeSlideUp 0.7s ease backwards;
+}
+
+.journal-frame {
+  animation: scaleReveal 0.8s ease 0.12s backwards;
+}
+
+.itinerary-panel .panel-heading {
+  animation: fadeSlideUp 0.6s ease 0.25s backwards;
+}
+
+.day-ticket {
+  animation: fadeSlideUp 0.5s ease backwards;
+}
+
+.map-title-block {
+  animation: fadeIn 0.8s ease 0.35s backwards;
+}
+
+.map-compass {
+  animation: fadeIn 0.7s ease 0.45s backwards;
+}
+
+.map-zoom-controls {
+  animation: fadeSlideUp 0.5s ease 0.4s backwards;
+}
+
+.map-day-strip {
+  animation: fadeSlideUp 0.5s ease 0.5s backwards;
+}
+
+/* Photo pin entrance */
+.photo-pin {
+  animation: pinDrop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) backwards;
+}
+
+/* Route line draw animation */
+.geo-route {
+  stroke-dashoffset: 2400;
+  animation: drawRoute 2.5s ease-out 0.4s forwards;
+}
+
+/* Modal entrance animations */
+.modal-backdrop {
+  animation: backdropIn 0.35s ease;
+}
+
+.day-paper,
+.unplaced-paper,
+.upload-paper {
+  animation: paperSlideIn 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Filmstrip images hover */
+.filmstrip figure {
+  transition: transform 0.2s ease;
+}
+
+.filmstrip figure:hover {
+  transform: scale(1.04);
+}
+
+.filmstrip img {
+  transition: box-shadow 0.2s ease;
+}
+
+.filmstrip figure:hover img {
+  box-shadow:
+    0 0 0 1px hsl(var(--gold) / 0.4),
+    0 4px 12px hsl(var(--ink) / 0.18);
+}
+
+/* Zoom control buttons transition */
+.map-zoom-controls button {
+  transition: all 0.15s ease;
+}
+
+/* Open day button transition */
+.open-day-button {
+  transition: all 0.2s ease;
+}
+
+.open-day-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px hsl(var(--ink) / 0.2);
+}
+
+/* Aged paper effect on day modal */
+.day-paper::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  opacity: 0.5;
+  background:
+    radial-gradient(circle at 11% 7%, hsl(30 40% 60% / 0.14) 0, transparent 3%),
+    radial-gradient(circle at 79% 14%, hsl(28 35% 55% / 0.11) 0, transparent 2.5%),
+    radial-gradient(circle at 44% 93%, hsl(32 42% 58% / 0.09) 0, transparent 4%),
+    radial-gradient(circle at 89% 68%, hsl(30 38% 52% / 0.12) 0, transparent 2%),
+    radial-gradient(circle at 73% 21%, transparent 4%, hsl(25 30% 50% / 0.05) 4.5%, transparent 6%),
+    linear-gradient(180deg, hsl(33 30% 40% / 0.05), transparent 8%, transparent 92%, hsl(33 30% 40% / 0.07));
+}
+
+.day-paper > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Accessibility: reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Focus visible */
+:focus-visible {
+  outline: 2px solid hsl(var(--seal));
+  outline-offset: 2px;
+}
+
 .modal-close {
   position: absolute;
   top: 18px;
@@ -993,7 +1265,7 @@ button {
   color: rgba(45, 36, 25, 0.78);
   border: 1px solid rgba(58, 43, 28, 0.42);
   background: rgba(249, 240, 211, 0.64);
-  font-family: "Courier New", monospace;
+  font-family: var(--font-mono);
   font-size: 11px;
   letter-spacing: 1.2px;
   text-transform: uppercase;
@@ -1011,7 +1283,7 @@ button {
   color: #8e3f39;
   border: 2px solid currentColor;
   border-radius: 50%;
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--font-display);
   text-transform: uppercase;
   transform: rotate(-8deg);
 }
@@ -1039,7 +1311,7 @@ button {
   padding: 4px 7px;
   color: #9a443b;
   background: rgba(153, 66, 55, 0.09);
-  font-family: "Courier New", monospace;
+  font-family: var(--font-mono);
   font-size: 11px;
   letter-spacing: 1.4px;
   text-transform: uppercase;
@@ -1047,7 +1319,7 @@ button {
 
 .day-paper__header h2 {
   margin: 0 0 8px;
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--font-display);
   font-size: 48px;
   font-weight: 500;
   line-height: 1.05;
@@ -1057,7 +1329,7 @@ button {
 
 .day-paper__header p {
   margin: 0 0 17px;
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--font-display);
   font-size: 21px;
   color: rgba(45, 36, 25, 0.8);
 }
@@ -1075,15 +1347,27 @@ button {
   gap: 7px;
   overflow-x: auto;
   padding: 22px 12px;
-  background:
-    repeating-linear-gradient(90deg, #201914 0 8px, #2e241d 8px 14px),
-    #18120e;
+  background: repeating-linear-gradient(90deg, #201914 0 8px, #2e241d 8px 14px), #18120e;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: hsl(var(--gold) / 0.3) transparent;
+}
+
+.clickable-photo {
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.clickable-photo:hover {
+  transform: scale(1.03);
+  box-shadow: 0 2px 12px hsl(var(--film) / 0.25);
 }
 
 .cover-film::before,
-.cover-film::after,
-.filmstrip::before,
-.filmstrip::after {
+.cover-film::after {
   content: "";
   position: absolute;
   right: 0;
@@ -1092,13 +1376,11 @@ button {
   background: repeating-linear-gradient(90deg, rgba(244, 229, 188, 0.18) 0 8px, transparent 8px 18px);
 }
 
-.cover-film::before,
-.filmstrip::before {
+.cover-film::before {
   top: 5px;
 }
 
-.cover-film::after,
-.filmstrip::after {
+.cover-film::after {
   bottom: 5px;
 }
 
@@ -1125,6 +1407,16 @@ button {
   padding: 24px 0 28px;
   border-top: 1px dashed rgba(58, 43, 28, 0.22);
   scroll-margin: 80px;
+  opacity: 0;
+  transform: translateY(14px);
+  transition:
+    opacity 0.5s ease,
+    transform 0.5s ease;
+}
+
+.stop-entry.is-visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .stop-entry.is-focused {
@@ -1138,7 +1430,7 @@ button {
   height: 42px;
   border: 1px solid #2d2419;
   border-radius: 50%;
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--font-display);
   font-size: 14px;
 }
 
@@ -1147,7 +1439,7 @@ button {
   align-items: center;
   gap: 9px;
   color: #8e3f39;
-  font-family: "Courier New", monospace;
+  font-family: var(--font-mono);
   font-size: 10px;
   font-weight: 700;
   letter-spacing: 2px;
@@ -1163,7 +1455,7 @@ button {
 
 .stop-entry h3 {
   margin: 5px 0 2px;
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--font-display);
   font-size: 25px;
   font-weight: 500;
   letter-spacing: 0;
@@ -1198,7 +1490,7 @@ button {
 .stop-entry__scene {
   margin: 2px 0 0;
   color: rgba(45, 36, 25, 0.52);
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--font-display);
   font-size: 13px;
   font-style: italic;
   letter-spacing: 0.3px;
@@ -1209,7 +1501,7 @@ button {
   margin: 14px 0 6px;
   padding: 14px 18px 14px 24px;
   color: rgba(45, 36, 25, 0.82);
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--font-display);
   font-size: 14px;
   font-style: italic;
   line-height: 1.9;
@@ -1248,7 +1540,7 @@ button {
 .capsule-tag {
   padding: 2px 7px;
   color: rgba(45, 36, 25, 0.72);
-  font-family: "Courier New", monospace;
+  font-family: var(--font-mono);
   font-size: 10px;
   letter-spacing: 0.5px;
   border: 1px solid rgba(58, 43, 28, 0.2);
@@ -1260,7 +1552,7 @@ button {
   gap: 10px;
   align-items: flex-start;
   color: rgba(45, 36, 25, 0.82);
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--font-display);
   font-size: 15px;
   font-style: italic;
   line-height: 1.85;
@@ -1291,7 +1583,7 @@ button {
   gap: 7px;
   margin-bottom: 12px;
   color: #8e3f39;
-  font-family: "Courier New", monospace;
+  font-family: var(--font-mono);
   font-size: 10px;
   letter-spacing: 2px;
   text-transform: uppercase;
@@ -1299,7 +1591,7 @@ button {
 
 .postcard p {
   margin: 0;
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--font-display);
   font-size: 14px;
   font-style: italic;
   line-height: 2;
@@ -1310,7 +1602,7 @@ button {
   margin-top: 14px;
   text-align: right;
   color: rgba(45, 36, 25, 0.5);
-  font-family: "Courier New", monospace;
+  font-family: var(--font-mono);
   font-size: 11px;
   letter-spacing: 1px;
 }
@@ -1320,7 +1612,7 @@ button {
   color: rgba(45, 36, 25, 0.55) !important;
   text-transform: none !important;
   letter-spacing: 0 !important;
-  font-family: Inter, sans-serif !important;
+  font-family: var(--font-body) !important;
   margin-top: 2px;
 }
 
@@ -1330,7 +1622,7 @@ button {
 
 .ai-config-details summary {
   color: #8e3f39;
-  font-family: "Courier New", monospace;
+  font-family: var(--font-mono);
   font-size: 11px;
   letter-spacing: 0.8px;
   cursor: pointer;
@@ -1350,6 +1642,13 @@ button {
 .filmstrip figure {
   flex: 0 0 164px;
   margin: 0;
+  scroll-snap-align: start;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.filmstrip figure:hover {
+  transform: translateY(-2px);
 }
 
 .filmstrip img {
@@ -1358,16 +1657,133 @@ button {
   height: 96px;
   object-fit: cover;
   border: 1px solid rgba(238, 222, 184, 0.24);
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.filmstrip figure:hover img {
+  border-color: hsl(var(--seal) / 0.4);
+  box-shadow: 0 2px 8px hsl(var(--film) / 0.3);
 }
 
 .filmstrip figcaption {
   padding-top: 5px;
   color: rgba(240, 225, 187, 0.7);
-  font-family: "Courier New", monospace;
+  font-family: var(--font-mono);
   font-size: 9px;
   letter-spacing: 0.8px;
   text-transform: uppercase;
   white-space: nowrap;
+}
+
+/* ── Lightbox ── */
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 9000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: hsl(var(--film) / 0.92);
+  backdrop-filter: blur(6px);
+  animation: backdropIn 0.3s ease-out both;
+  cursor: zoom-out;
+}
+
+.lightbox__content {
+  position: relative;
+  max-width: min(92vw, 1400px);
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: paperSlideIn 0.35s cubic-bezier(0.22, 1, 0.36, 1) both;
+  cursor: default;
+}
+
+.lightbox__content img {
+  max-width: 100%;
+  max-height: calc(90vh - 40px);
+  object-fit: contain;
+  border: 3px solid hsl(var(--cream) / 0.25);
+  border-radius: 2px;
+  box-shadow:
+    0 8px 40px hsl(var(--film) / 0.5),
+    0 0 0 1px hsl(var(--cream) / 0.08);
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.lightbox__caption {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 600px;
+  margin-top: 10px;
+  padding: 0 4px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.5px;
+  color: hsl(var(--cream) / 0.5);
+}
+
+.lightbox__nav {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 9001;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border: 1px solid hsl(var(--cream) / 0.15);
+  border-radius: 50%;
+  background: hsl(var(--film) / 0.5);
+  color: hsl(var(--cream) / 0.7);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.lightbox__nav:hover {
+  background: hsl(var(--film) / 0.75);
+  color: hsl(var(--cream));
+  border-color: hsl(var(--cream) / 0.3);
+  transform: translateY(-50%) scale(1.08);
+}
+
+.lightbox__nav--prev {
+  left: max(12px, 2vw);
+}
+
+.lightbox__nav--next {
+  right: max(12px, 2vw);
+}
+
+.lightbox__close {
+  position: fixed;
+  top: max(12px, 2vw);
+  right: max(12px, 2vw);
+  z-index: 9001;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid hsl(var(--cream) / 0.15);
+  border-radius: 50%;
+  background: hsl(var(--film) / 0.5);
+  color: hsl(var(--cream) / 0.7);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.lightbox__close:hover {
+  background: hsl(var(--seal));
+  color: hsl(var(--cream));
+  border-color: hsl(var(--seal-bright));
 }
 
 @media (max-width: 980px) {
@@ -1593,5 +2009,23 @@ button {
   .unplaced-actions {
     align-items: stretch;
     flex-direction: column;
+  }
+
+  .lightbox__nav {
+    width: 38px;
+    height: 38px;
+  }
+
+  .lightbox__nav--prev {
+    left: 6px;
+  }
+
+  .lightbox__nav--next {
+    right: 6px;
+  }
+
+  .lightbox__close {
+    top: 8px;
+    right: 8px;
   }
 }

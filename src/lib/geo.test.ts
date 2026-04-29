@@ -6,14 +6,14 @@ describe("geo helpers", () => {
     const bounds = computeBounds([
       { latitude: -8.7, longitude: 115.1 },
       { latitude: -8.5, longitude: 115.4 },
-      { latitude: null, longitude: null }
+      { latitude: null, longitude: null },
     ]);
 
     expect(bounds).toEqual({
       minLat: -8.7,
       maxLat: -8.5,
       minLon: 115.1,
-      maxLon: 115.4
+      maxLon: 115.4,
     });
   });
 
@@ -39,10 +39,7 @@ describe("geo helpers", () => {
   });
 
   it("calculates distance between nearby coordinates", () => {
-    const distance = haversineKm(
-      { latitude: 31.2304, longitude: 121.4737 },
-      { latitude: 31.235, longitude: 121.48 }
-    );
+    const distance = haversineKm({ latitude: 31.2304, longitude: 121.4737 }, { latitude: 31.235, longitude: 121.48 });
 
     expect(distance).not.toBeNull();
     expect(distance ?? 0).toBeGreaterThan(0.5);

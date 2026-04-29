@@ -49,13 +49,13 @@ export default function App() {
   return (
     <main className="album-shell">
       <header className="album-hero">
-        <div className="hero-micro">PERSONAL FOOTPRINT ATLAS · ALL PLACES MEMORY</div>
+        <div className="hero-micro">Footprint Atlas · A Living Archive of Everywhere</div>
         <h1>{album.destination}</h1>
         <p>{album.subtitle}</p>
         <div className="hero-meta" aria-label="album stats">
           <span>
             <CalendarDays size={15} />
-            {album.dateRange || "No archive dates"}
+            {album.dateRange || "尚无档案"}
           </span>
           <span>
             <Images size={15} />
@@ -108,8 +108,8 @@ export default function App() {
 
         <aside className="itinerary-panel" aria-label="Footprint archive">
           <div className="panel-heading">
-            <span>Archive</span>
-            <strong>足迹 · 时期</strong>
+            <span>Catalogue</span>
+            <strong>旅程卷宗</strong>
           </div>
 
           <div className="day-list">
@@ -118,7 +118,11 @@ export default function App() {
                 className={`day-ticket ${day.id === activeDay?.id ? "is-active" : ""}`}
                 key={day.id}
                 onClick={() => setActiveDayId(day.id)}
+                style={{ animationDelay: `${0.3 + index * 0.06}s` }}
               >
+                {day.stops[0]?.photos[0] && (
+                  <img className="day-ticket__thumb" src={day.stops[0].photos[0].thumb} alt="" />
+                )}
                 <span className="day-ticket__index">VOL {String(index + 1).padStart(2, "0")}</span>
                 <span className="day-ticket__title">{day.title}</span>
                 <span className="day-ticket__route">{day.subtitle}</span>
@@ -132,7 +136,7 @@ export default function App() {
 
           {activeDay && (
             <button className="open-day-button" onClick={() => setActiveModalDay(activeDay)}>
-              Open Archive Log
+              展开此卷
             </button>
           )}
         </aside>
@@ -140,8 +144,8 @@ export default function App() {
 
       {album.stats.photos === 0 && (
         <section className="empty-note">
-          <strong>照片入口</strong>
-          <span>把照片放到 raw/photos，然后运行 npm run album:build，再刷新页面。</span>
+          <strong>开始建档</strong>
+          <span>将照片置入 raw/photos，执行 npm run album:build 即可生成足迹地图。</span>
         </section>
       )}
 

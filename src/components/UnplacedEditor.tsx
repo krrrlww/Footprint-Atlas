@@ -38,7 +38,7 @@ export function UnplacedEditor({ photos, onClose, onSaved }: UnplacedEditorProps
       latitude: null,
       longitude: null,
       results: [],
-      isSearching: false
+      isSearching: false,
     }))
   );
   const [message, setMessage] = useState("");
@@ -96,8 +96,8 @@ export function UnplacedEditor({ photos, onClose, onSaved }: UnplacedEditorProps
             placeName: item.placeName || item.query,
             latitude: item.latitude,
             longitude: item.longitude,
-            takenAt: localInputToIso(item.takenAt)
-          }
+            takenAt: localInputToIso(item.takenAt),
+          },
         ])
     );
 
@@ -113,7 +113,7 @@ export function UnplacedEditor({ photos, onClose, onSaved }: UnplacedEditorProps
       const response = await fetch("/api/manual-overrides", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ overrides })
+        body: JSON.stringify({ overrides }),
       });
       const payload = (await response.json()) as { album?: TravelAlbum; error?: string };
       if (!response.ok || !payload.album) throw new Error(payload.error || "保存失败");
@@ -179,7 +179,7 @@ export function UnplacedEditor({ photos, onClose, onSaved }: UnplacedEditorProps
                               query: result.placeName,
                               latitude: result.latitude,
                               longitude: result.longitude,
-                              results: []
+                              results: [],
                             })
                           }
                         >

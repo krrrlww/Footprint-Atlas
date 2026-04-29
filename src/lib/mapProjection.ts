@@ -11,7 +11,7 @@ const MAP_WIDTH = 1000;
 const MAP_HEIGHT = 720;
 const MAP_PADDING: [[number, number], [number, number]] = [
   [86, 82],
-  [914, 610]
+  [914, 610],
 ];
 
 type ScreenPoint = {
@@ -54,7 +54,7 @@ export function buildRealMapProjection(stops: TimelineStop[]): RealMapProjection
       x: (point.screenX / MAP_WIDTH) * 100,
       y: (point.screenY / MAP_HEIGHT) * 100,
       usedGps: hasGps(stop),
-      globalIndex: index
+      globalIndex: index,
     };
   });
 
@@ -65,7 +65,7 @@ export function buildRealMapProjection(stops: TimelineStop[]): RealMapProjection
     routePoints: projected.map((stop) => `${stop.screenX.toFixed(1)},${stop.screenY.toFixed(1)}`).join(" "),
     landPath: path(countryCollection) ?? "",
     borderPath: path(countryBorders) ?? "",
-    graticulePath: path(graticule()) ?? ""
+    graticulePath: path(graticule()) ?? "",
   };
 }
 
@@ -75,9 +75,7 @@ function createProjection(stops: TimelineStop[]): GeoProjection {
 }
 
 function buildFitFeature(stops: TimelineStop[]): Feature<Polygon> {
-  const points = stops.flatMap<Position>((stop) =>
-    hasGps(stop) ? [[stop.longitude, stop.latitude]] : []
-  );
+  const points = stops.flatMap<Position>((stop) => (hasGps(stop) ? [[stop.longitude, stop.latitude]] : []));
 
   if (points.length === 0) {
     return bboxFeature(70, 15, 135, 55);
@@ -88,13 +86,13 @@ function buildFitFeature(stops: TimelineStop[]): Feature<Polygon> {
       minLon: Math.min(result.minLon, point[0]),
       maxLon: Math.max(result.maxLon, point[0]),
       minLat: Math.min(result.minLat, point[1]),
-      maxLat: Math.max(result.maxLat, point[1])
+      maxLat: Math.max(result.maxLat, point[1]),
     }),
     {
       minLon: points[0][0],
       maxLon: points[0][0],
       minLat: points[0][1],
-      maxLat: points[0][1]
+      maxLat: points[0][1],
     }
   );
 
@@ -123,19 +121,14 @@ function bboxFeature(minLon: number, minLat: number, maxLon: number, maxLat: num
           [maxLon, minLat],
           [maxLon, maxLat],
           [minLon, maxLat],
-          [minLon, minLat]
-        ]
-      ]
-    }
+          [minLon, minLat],
+        ],
+      ],
+    },
   };
 }
 
-function projectStop(
-  stop: TimelineStop,
-  stops: TimelineStop[],
-  index: number,
-  projection: GeoProjection
-): ScreenPoint {
+function projectStop(stop: TimelineStop, stops: TimelineStop[], index: number, projection: GeoProjection): ScreenPoint {
   if (hasGps(stop)) {
     const point = projection([stop.longitude, stop.latitude]);
     if (point) return clampScreenPoint(point[0], point[1]);
@@ -147,11 +140,7 @@ function projectStop(
   return fallbackScreenPoint(index, stops.length);
 }
 
-function inferMissingGpsPoint(
-  stops: TimelineStop[],
-  index: number,
-  projection: GeoProjection
-): ScreenPoint | null {
+function inferMissingGpsPoint(stops: TimelineStop[], index: number, projection: GeoProjection): ScreenPoint | null {
   const previous = findNeighborGps(stops, index, -1, projection);
   const next = findNeighborGps(stops, index, 1, projection);
 
@@ -194,7 +183,7 @@ function fallbackScreenPoint(index: number, total: number): ScreenPoint {
 function clampScreenPoint(x: number, y: number): ScreenPoint {
   return {
     screenX: clamp(x, 46, MAP_WIDTH - 46),
-    screenY: clamp(y, 54, MAP_HEIGHT - 96)
+    screenY: clamp(y, 54, MAP_HEIGHT - 96),
   };
 }
 

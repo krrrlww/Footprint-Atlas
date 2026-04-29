@@ -250,7 +250,7 @@ async function buildAlbum(media) {
     const stops = await buildStops(periodMedia, periodKey, geocodeCache);
     const date = parsePeriodKey(periodKey);
     const title = inferPeriodTitle(date, stops);
-    const subtitle = `${stops.length} 个足迹点 · ${periodMedia.length} 张照片`;
+    const subtitle = `${stops.length} 处足迹 · ${periodMedia.length} 帧底片`;
 
     days.push({
       id: `period-${String(periodIndex + 1).padStart(2, "0")}`,
@@ -271,7 +271,7 @@ async function buildAlbum(media) {
   return {
     mode: "all-places",
     title: "FOOTPRINT ATLAS",
-    subtitle: "把这些年去过的地方做成一张持续生长的照片地图",
+    subtitle: "每一张照片都是一枚坐标，钉在时间的地图上",
     destination: "ALL PLACES",
     dateRange: buildDateRange(days),
     generatedAt: new Date().toISOString(),
@@ -373,16 +373,16 @@ function inferStopTitle(type, index, photos = [], locationName = "") {
 
   const number = String(index + 1).padStart(2, "0");
   const titles = {
-    transit: "Moving Memory",
-    hotel: "Stay & Pool",
-    food: "Food Stop",
-    walk: "Footprint Cluster",
-    sight: "Visited Place",
-    photo: "Photo Place",
-    memory: "Memory Place"
+    transit: "途经",
+    hotel: "驻留",
+    food: "食记",
+    walk: "漫步",
+    sight: "到访",
+    photo: "留影",
+    memory: "印迹"
   };
 
-  return `${titles[type] ?? "Photo Point"} ${number}`;
+  return `${titles[type] ?? "足迹"} ${number}`;
 }
 
 function buildStopDescription(photos, center, locationName) {
@@ -403,7 +403,7 @@ function inferPeriodTitle(date, stops) {
 
 function buildPeriodSummary(periodMedia, stops) {
   const gpsCount = periodMedia.filter((item) => typeof item.latitude === "number" && typeof item.longitude === "number").length;
-  return `这个时期整理出 ${stops.length} 个足迹点、${periodMedia.length} 张照片，其中 ${gpsCount} 张带 GPS。地图按时间顺序串联这些位置，但它代表“去过的地方”，不是单次连续旅行。`;
+  return `${stops.length} 处足迹，${periodMedia.length} 张底片，${gpsCount} 张定位于经纬之上。`;
 }
 
 function buildDateRange(days) {
@@ -416,7 +416,7 @@ function buildDateRange(days) {
 async function writeEmptyAlbum() {
   const emptyAlbum = {
     title: "FOOTPRINT ATLAS",
-    subtitle: "把照片放入 raw/photos 后运行 npm run album:build",
+    subtitle: "将照片置入 raw/photos 开始建档",
     destination: "ALL PLACES",
     dateRange: "",
     generatedAt: new Date().toISOString(),

@@ -24,8 +24,7 @@ export function haversineKm(a: GeoPoint, b: GeoPoint): number | null {
   const lat2 = toRad(b.latitude);
 
   const value =
-    Math.sin(dLat / 2) * Math.sin(dLat / 2) +
-    Math.cos(lat1) * Math.cos(lat2) * Math.sin(dLon / 2) * Math.sin(dLon / 2);
+    Math.sin(dLat / 2) * Math.sin(dLat / 2) + Math.cos(lat1) * Math.cos(lat2) * Math.sin(dLon / 2) * Math.sin(dLon / 2);
 
   return 2 * radiusKm * Math.atan2(Math.sqrt(value), Math.sqrt(1 - value));
 }
@@ -39,13 +38,13 @@ export function computeBounds(points: GeoPoint[]): Bounds | null {
       minLat: Math.min(bounds.minLat, point.latitude),
       maxLat: Math.max(bounds.maxLat, point.latitude),
       minLon: Math.min(bounds.minLon, point.longitude),
-      maxLon: Math.max(bounds.maxLon, point.longitude)
+      maxLon: Math.max(bounds.maxLon, point.longitude),
     }),
     {
       minLat: gps[0].latitude,
       maxLat: gps[0].latitude,
       minLon: gps[0].longitude,
-      maxLon: gps[0].longitude
+      maxLon: gps[0].longitude,
     }
   );
 }
@@ -68,7 +67,7 @@ export function projectPoint(
   return {
     x: clamp(x, 8, 90),
     y: clamp(y, 10, 78),
-    usedGps: true
+    usedGps: true,
   };
 }
 
@@ -81,7 +80,7 @@ function fallbackPoint(index: number, total: number): { x: number; y: number; us
   return {
     x: clamp(x, 10, 88),
     y: clamp(y, 16, 76),
-    usedGps: false
+    usedGps: false,
   };
 }
 

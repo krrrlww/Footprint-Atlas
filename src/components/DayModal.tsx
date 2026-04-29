@@ -1,7 +1,8 @@
-import { useEffect, useMemo, useRef } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { X, Feather, Mail } from "lucide-react";
 import { formatStopCounter } from "../lib/album";
-import type { AlbumDay, TimelineStop } from "../types/album";
+import { Lightbox } from "./Lightbox";
+import type { AlbumDay, MediaItem, TimelineStop } from "../types/album";
 
 type DayModalProps = {
   day: AlbumDay;
@@ -10,17 +11,29 @@ type DayModalProps = {
 };
 
 export function DayModal({ day, initialStopId, onClose }: DayModalProps) {
-  const stopRefs = useRef<Record<string, HTMLDivElement | null>>({});
+  const stopRefs = useRef<Record<string, HTMLElement | null>>({});
   const dateParts = day.dateLabel.split(".");
+
+  const [lightboxPhotos, setLightboxPhotos] = useState<MediaItem[]>([]);
+  const [lightboxIndex, setLightboxIndex] = useState(0);
+
+  const openLightbox = useCallback((photos: MediaItem[], index: number) => {
+    setLightboxPhotos(photos);
+    setLightboxIndex(index);
+  }, []);
+
+  const closeLightbox = useCallback(() => setLightboxPhotos([]), []);
 
   useEffect(() => {
     const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") onClose();
+      if (event.key === "Escape") {
+        if (lightboxPhotos.length > 0) closeLightbox();
+        else onClose();
+      }
     };
-
     document.addEventListener("keydown", onKeyDown);
     return () => document.removeEventListener("keydown", onKeyDown);
-  }, [onClose]);
+  }, [onClose, lightboxPhotos.length, closeLightbox]);
 
   useEffect(() => {
     if (!initialStopId) return;
@@ -29,10 +42,9 @@ export function DayModal({ day, initialStopId, onClose }: DayModalProps) {
     });
   }, [initialStopId]);
 
-  const featuredPhotos = useMemo(
-    () => day.stops.flatMap((stop) => stop.photos.slice(0, 2)).slice(0, 8),
-    [day.stops]
-  );
+  const featuredPhotos = useMemo(() => day.stops.flatMap((stop) => stop.photos.slice(0, 2)).slice(0, 8), [day.stops]);
+
+  const allPhotos = useMemo(() => day.stops.flatMap((stop) => stop.photos), [day.stops]);
 
   const narrative = day.narrative;
 
@@ -51,7 +63,9 @@ export function DayModal({ day, initialStopId, onClose }: DayModalProps) {
         </div>
 
         <header className="day-paper__header">
-          <span>{day.weekday} · {day.dateLabel}</span>
+          <span>
+            {day.weekday} · {day.dateLabel}
+          </span>
           <h2>{narrative?.title || day.title}</h2>
           <p>{day.subtitle}</p>
           {narrative ? (
@@ -67,7 +81,17 @@ export function DayModal({ day, initialStopId, onClose }: DayModalProps) {
         {featuredPhotos.length > 0 && (
           <div className="cover-film" aria-label="featured photos">
             {featuredPhotos.map((photo, index) => (
-              <img key={`${photo.id}-${index}`} src={photo.thumb} alt={photo.fileName} loading="lazy" />
+              <img
+                key={`${photo.id}-${index}`}
+                src={photo.thumb}
+                alt={photo.fileName}
+                loading="lazy"
+                className="clickable-photo"
+                onClick={() => {
+                  const globalIndex = allPhotos.findIndex((p) => p.id === photo.id);
+                  openLightbox(allPhotos, globalIndex >= 0 ? globalIndex : 0);
+                }}
+              />
             ))}
           </div>
         )}
@@ -92,10 +116,20 @@ export function DayModal({ day, initialStopId, onClose }: DayModalProps) {
               refSetter={(element) => {
                 stopRefs.current[stop.id] = element;
               }}
+              onPhotoClick={(photo, index) => openLightbox(stop.photos, index)}
             />
           ))}
         </div>
       </div>
+
+      {lightboxPhotos.length > 0 && (
+        <Lightbox
+          photos={lightboxPhotos}
+          currentIndex={lightboxIndex}
+          onClose={closeLightbox}
+          onNavigate={setLightboxIndex}
+        />
+      )}
     </div>
   );
 }
@@ -103,14 +137,38 @@ export function DayModal({ day, initialStopId, onClose }: DayModalProps) {
 type StopEntryProps = {
   stop: TimelineStop;
   isFocused: boolean;
-  refSetter: (element: HTMLDivElement | null) => void;
+  refSetter: (element: HTMLElement | null) => void;
+  onPhotoClick: (photo: MediaItem, index: number) => void;
 };
 
-function StopEntry({ stop, isFocused, refSetter }: StopEntryProps) {
+function StopEntry({ stop, isFocused, refSetter, onPhotoClick }: StopEntryProps) {
   const capsule = stop.capsule;
+  const entryRef = useRef<HTMLElement | null>(null);
+
+  useEffect(() => {
+    const el = entryRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          el.classList.add("is-visible");
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.15 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
 
   return (
-    <article className={`stop-entry ${isFocused ? "is-focused" : ""}`} ref={refSetter}>
+    <article
+      className={`stop-entry ${isFocused ? "is-focused" : ""}`}
+      ref={(el) => {
+        entryRef.current = el;
+        refSetter(el);
+      }}
+    >
       <div className="stop-entry__number">{formatStopCounter(stop.index)}</div>
       <div className="stop-entry__content">
         <div className="stop-entry__meta">
@@ -129,11 +187,7 @@ function StopEntry({ stop, isFocused, refSetter }: StopEntryProps) {
         {capsule?.scene && <p className="stop-entry__scene">{capsule.scene}</p>}
         <p className="stop-entry__subtitle">{stop.subtitle}</p>
 
-        {capsule?.journalNote && (
-          <blockquote className="capsule-journal">
-            {capsule.journalNote}
-          </blockquote>
-        )}
+        {capsule?.journalNote && <blockquote className="capsule-journal">{capsule.journalNote}</blockquote>}
 
         {!capsule && <p>{stop.description}</p>}
 
@@ -149,7 +203,9 @@ function StopEntry({ stop, isFocused, refSetter }: StopEntryProps) {
             {capsule.tags?.length > 0 && (
               <div className="capsule-tags">
                 {capsule.tags.map((t) => (
-                  <span key={t} className="capsule-tag">#{t}</span>
+                  <span key={t} className="capsule-tag">
+                    #{t}
+                  </span>
                 ))}
               </div>
             )}
@@ -159,9 +215,11 @@ function StopEntry({ stop, isFocused, refSetter }: StopEntryProps) {
         {stop.photos.length > 0 && (
           <div className="filmstrip">
             {stop.photos.slice(0, 9).map((photo, index) => (
-              <figure key={photo.id}>
+              <figure key={photo.id} onClick={() => onPhotoClick(photo, index)}>
                 <img src={photo.thumb} alt={photo.fileName} loading="lazy" />
-                <figcaption>{String(index + 1).padStart(2, "0")} · {(capsule?.poeticTitle || stop.title).replace(/\s\d+$/, "")}</figcaption>
+                <figcaption>
+                  {String(index + 1).padStart(2, "0")} · {(capsule?.poeticTitle || stop.title).replace(/\s\d+$/, "")}
+                </figcaption>
               </figure>
             ))}
           </div>

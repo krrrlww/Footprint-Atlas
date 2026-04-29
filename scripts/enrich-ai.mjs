@@ -20,24 +20,28 @@ const TEXT_BASE_URL = process.env.AI_TEXT_BASE_URL || VISION_BASE_URL;
 const TEXT_API_KEY = process.env.AI_TEXT_API_KEY || VISION_API_KEY;
 
 async function main() {
-  if (!API_KEY) {
-    console.log("No AI_API_KEY set. Skipping AI enrichment.");
-    console.log("To enable: AI_API_KEY=sk-xxx npm run album:ai");
-    return;
-  }
-
   const album = JSON.parse(await fs.readFile(ALBUM_PATH, "utf8"));
   if (!album.days || album.days.length === 0) {
     console.log("No album data. Run npm run album:build first.");
     return;
   }
 
-  console.log(`[AI] Vision model: ${VISION_MODEL} @ ${VISION_BASE_URL}`);
-  if (TEXT_MODEL !== VISION_MODEL || TEXT_BASE_URL !== VISION_BASE_URL) {
-    console.log(`[AI] Text model: ${TEXT_MODEL} @ ${TEXT_BASE_URL}`);
+  const cache = await loadCache();
+  const hasCachedData = Object.keys(cache).length > 0;
+
+  if (!API_KEY && !hasCachedData) {
+    console.log("No AI_API_KEY set. Skipping AI enrichment.");
+    console.log("To enable: AI_API_KEY=sk-xxx npm run album:ai");
+    return;
   }
 
-  const cache = await loadCache();
+  if (API_KEY) {
+    console.log(`[AI] Vision model: ${VISION_MODEL} @ ${VISION_BASE_URL}`);
+    if (TEXT_MODEL !== VISION_MODEL || TEXT_BASE_URL !== VISION_BASE_URL) {
+      console.log(`[AI] Text model: ${TEXT_MODEL} @ ${TEXT_BASE_URL}`);
+    }
+  }
+
   let cacheHits = 0;
   let apiCalls = 0;
   let failures = 0;
@@ -55,6 +59,7 @@ async function main() {
         continue;
       }
 
+      if (!API_KEY) { processed++; continue; }
       console.log(`[AI] (${processed + 1}/${totalItems}) Capsule: ${stop.title} (${stop.photos.length} photos)`);
       const capsule = await generateCapsule(stop);
       if (capsule) {
@@ -80,6 +85,7 @@ async function main() {
       continue;
     }
 
+    if (!API_KEY) { processed++; continue; }
     console.log(`[AI] (${processed + 1}/${totalItems}) Narrative: ${day.title}`);
     const narrative = await generateNarrative(day);
     if (narrative) {

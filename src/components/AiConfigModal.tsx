@@ -69,10 +69,16 @@ export function AiConfigModal({ onClose, onAlbumUpdated }: AiConfigModalProps) {
       const resp = await fetch("/api/ai-enrich", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ config })
+        body: JSON.stringify({ config }),
       });
 
-      const data = await resp.json() as { ok?: boolean; album?: TravelAlbum; stats?: string; error?: string; log?: string[] };
+      const data = (await resp.json()) as {
+        ok?: boolean;
+        album?: TravelAlbum;
+        stats?: string;
+        error?: string;
+        log?: string[];
+      };
       if (!resp.ok || !data.ok) throw new Error(data.error || "AI enrichment failed");
       if (data.log?.length) console.log("[AI enrichment log]", data.log.join("\n"));
 
@@ -81,7 +87,9 @@ export function AiConfigModal({ onClose, onAlbumUpdated }: AiConfigModalProps) {
       if (data.album) onAlbumUpdated(data.album);
     } catch (err) {
       const raw = err instanceof Error ? err.message : "生成失败";
-      const errorLines = raw.split("\n").filter(l => l.includes("ERROR") || l.includes("error") || l.includes("Check"));
+      const errorLines = raw
+        .split("\n")
+        .filter((l) => l.includes("ERROR") || l.includes("error") || l.includes("Check"));
       setProgress(errorLines.length > 0 ? errorLines[0] : raw.split("\n")[0]);
     } finally {
       setIsRunning(false);
@@ -99,11 +107,16 @@ export function AiConfigModal({ onClose, onAlbumUpdated }: AiConfigModalProps) {
         <header className="upload-paper__header">
           <span>MEMORY CAPSULE</span>
           <h2>AI 记忆解析</h2>
-          <p>视觉模型会逐张阅读你的照片，理解画面内容，然后为每个足迹点写下诗意标题、手账旁注、氛围标签，为每段旅程写一封寄给未来自己的明信片。</p>
+          <p>
+            视觉模型会逐张阅读你的照片，理解画面内容，然后为每个足迹点写下诗意标题、手账旁注、氛围标签，为每段旅程写一封寄给未来自己的明信片。
+          </p>
         </header>
 
         <div className="unplaced-list">
-          <article className="unplaced-card" style={{ display: "grid", gap: 18, padding: "24px 20px", gridTemplateColumns: "1fr" }}>
+          <article
+            className="unplaced-card"
+            style={{ display: "grid", gap: 18, padding: "24px 20px", gridTemplateColumns: "1fr" }}
+          >
             <label>
               <span>API 地址</span>
               <input
@@ -122,7 +135,9 @@ export function AiConfigModal({ onClose, onAlbumUpdated }: AiConfigModalProps) {
                 onChange={(e) => updateConfig({ model: e.target.value })}
                 placeholder="deepseek-chat"
               />
-              <span className="ai-config-hint">需要支持图片输入的模型，如 deepseek-chat、gpt-4o、moonshot-v1-128k-vision-preview 等。</span>
+              <span className="ai-config-hint">
+                需要支持图片输入的模型，如 deepseek-chat、gpt-4o、moonshot-v1-128k-vision-preview 等。
+              </span>
             </label>
 
             <label>

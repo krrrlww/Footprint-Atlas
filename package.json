@@ -20,6 +20,10 @@
     "album:build": "node scripts/ingest-photos.mjs",
     "album:ai": "node scripts/enrich-ai.mjs",
     "album:full": "node scripts/ingest-photos.mjs && node scripts/enrich-ai.mjs",
+    "lint": "eslint src/",
+    "lint:fix": "eslint src/ --fix",
+    "format": "prettier --write \"src/**/*.{ts,tsx,css}\"",
+    "format:check": "prettier --check \"src/**/*.{ts,tsx,css}\"",
     "album:reset": "rm -rf public/media public/album.json data/media.json data/album.json data/ai-cache.json && mkdir -p public/media/full public/media/thumbs data"
   },
   "dependencies": {
@@ -36,6 +40,7 @@
     "world-atlas": "^2.0.2"
   },
   "devDependencies": {
+    "@eslint/js": "^10.0.1",
     "@testing-library/jest-dom": "^6.6.3",
     "@types/busboy": "^1.5.4",
     "@types/d3-geo": "^3.1.0",
@@ -44,7 +49,12 @@
     "@types/react": "^19.0.1",
     "@types/react-dom": "^19.0.2",
     "@types/topojson-client": "^3.1.5",
+    "eslint": "^10.2.1",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "eslint-plugin-react-refresh": "^0.5.2",
+    "prettier": "^3.8.3",
     "typescript": "^5.7.2",
+    "typescript-eslint": "^8.59.1",
     "vitest": "^2.1.8"
   }
 }

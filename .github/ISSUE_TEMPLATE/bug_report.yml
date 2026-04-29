@@ -1,0 +1,35 @@
+name: Bug Report
+description: Something isn't working as expected
+labels: [bug]
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: What happened?
+      placeholder: Describe the bug — what did you expect vs. what actually happened?
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Put photos in raw/photos/
+        2. Run npm run album:build
+        3. ...
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      placeholder: |
+        - OS: macOS 15.3 / Ubuntu 24.04 / Windows 11
+        - Node: v20.x
+        - Browser: Chrome 130
+
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshots
+      placeholder: Paste screenshots if relevant
