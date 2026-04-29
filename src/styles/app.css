@@ -75,8 +75,7 @@ button {
   grid-template-columns: minmax(260px, 1fr) auto;
   align-items: center;
   gap: 5px 16px;
-  width: min(1440px, 100%);
-  margin: 0 auto;
+  width: 100%;
   padding: 10px 14px;
   color: #3b3023;
   text-align: left;
@@ -183,11 +182,10 @@ button {
 
 .journal-frame {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) clamp(260px, 22vw, 330px);
-  width: min(1440px, 100%);
+  grid-template-columns: minmax(0, 1fr) clamp(280px, 24vw, 420px);
+  width: 100%;
   height: auto;
   min-height: 0;
-  margin: 0 auto;
   overflow: hidden;
   border: 1px solid rgba(57, 43, 28, 0.26);
   border-top: 0;
