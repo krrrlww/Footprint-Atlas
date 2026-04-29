@@ -128,8 +128,8 @@ async function prepareMediaFiles(filePath, id, kind) {
     const target = `${id}${ext}`;
     await fs.copyFile(filePath, path.join(FULL_DIR, target));
     return {
-      src: `/media/full/${target}`,
-      thumb: `/media/full/${target}`,
+      src: `media/full/${target}`,
+      thumb: `media/full/${target}`,
       width: null,
       height: null
     };
@@ -154,8 +154,8 @@ async function prepareMediaFiles(filePath, id, kind) {
       .toFile(path.join(THUMB_DIR, thumbName));
 
     return {
-      src: `/media/full/${fullName}`,
-      thumb: `/media/thumbs/${thumbName}`,
+      src: `media/full/${fullName}`,
+      thumb: `media/thumbs/${thumbName}`,
       width: metadata.width ?? null,
       height: metadata.height ?? null
     };
@@ -166,8 +166,8 @@ async function prepareMediaFiles(filePath, id, kind) {
     console.warn(`Could not optimize ${path.basename(filePath)}; copied original. ${error.message}`);
 
     return {
-      src: `/media/full/${target}`,
-      thumb: `/media/full/${target}`,
+      src: `media/full/${target}`,
+      thumb: `media/full/${target}`,
       width: null,
       height: null
     };
